@@ -66,9 +66,9 @@ nav a:hover::after{transform:scaleX(1)}
 .slide.active{opacity:1;visibility:visible}
 .slide::before{content:'';position:absolute;inset:0;background-size:cover;background-position:center;transition:transform 8s ease;transform:scale(1.05)}
 .slide.active::before{transform:scale(1)}
-.slide-1::before{background-image:linear-gradient(115deg,rgba(0,0,0,.88) 0%,rgba(0,0,0,.6) 55%,rgba(0,0,0,.3) 100%),url('https://media.base44.com/images/public/6a7034c72b3e4dca9d971e79/6f70fab9e_generated_image.png')}
-.slide-2::before{background-image:linear-gradient(115deg,rgba(0,0,0,.88) 0%,rgba(20,15,0,.6) 55%,rgba(0,0,0,.3) 100%),url('https://media.base44.com/images/public/6a7034c72b3e4dca9d971e79/20964d747_generated_image.png')}
-.slide-3::before{background-image:linear-gradient(115deg,rgba(0,0,0,.88) 0%,rgba(0,0,0,.6) 55%,rgba(0,0,0,.3) 100%),url('https://media.base44.com/images/public/6a7034c72b3e4dca9d971e79/9065bb67f_voltia_bateria_producto.jpg')}
+.slide-1::before{background-image:linear-gradient(115deg,rgba(0,0,0,.88) 0%,rgba(0,0,0,.6) 55%,rgba(0,0,0,.3) 100%),url('./img/hero.jpg')}
+.slide-2::before{background-image:linear-gradient(115deg,rgba(0,0,0,.88) 0%,rgba(20,15,0,.6) 55%,rgba(0,0,0,.3) 100%),url('./img/llegada.jpg')}
+.slide-3::before{background-image:linear-gradient(115deg,rgba(0,0,0,.88) 0%,rgba(0,0,0,.6) 55%,rgba(0,0,0,.3) 100%),url('./img/medicion.jpg')}
 .hero-inner{position:relative;z-index:2;max-width:1180px;margin:0 auto;width:100%;display:grid;grid-template-columns:1.15fr .85fr;gap:50px;align-items:center}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,205,0,.15);color:var(--yellow);border:1px solid rgba(255,205,0,.4);font-weight:800;font-size:12px;letter-spacing:1px;padding:8px 16px;border-radius:50px;margin-bottom:20px;text-transform:uppercase;backdrop-filter:blur(10px)}
 .hero-badge::before{content:'';width:8px;height:8px;background:var(--yellow);border-radius:50%;animation:glow-pulse 2s infinite}
@@ -132,7 +132,6 @@ nav a:hover::after{transform:scaleX(1)}
 .marquee:hover .marquee-track{animation-play-state:paused}
 
 .marquee-logo-container { display: flex; align-items: center; justify-content: center; height: 45px; width: 140px; }
-/* Filtro para poner los logos en blanco y negro, y recuperar color en hover */
 .marquee-logo { max-height: 100%; max-width: 100%; object-fit: contain; filter: grayscale(100%) brightness(200%) opacity(0.6); transition: all 0.3s ease; }
 .marquee-logo:hover { filter: grayscale(0%) brightness(100%) opacity(1); transform: scale(1.15); }
 .fallback-text { color: #fff; font-weight: 900; font-size: 20px; letter-spacing: 1px; opacity: 0.6; white-space: nowrap; transition: 0.3s; }
@@ -321,12 +320,10 @@ section{padding:80px 6vw;position:relative}
 .reviews{background:linear-gradient(180deg,#fff 0%,var(--soft) 100%);overflow:hidden}
 .rev-head{display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:40px;flex-wrap:wrap}
 .rev-score{background:#fff;border-radius:16px;padding:16px 24px;box-shadow:0 8px 24px rgba(0,0,0,.08);display:flex;align-items:center;gap:16px;border:1px solid #f0f0f0}
-/* Logo de Google integrado */
 .google-logo-icon { width: 32px; height: 32px; object-fit: contain; }
 .rev-score .big{font-size:38px;font-weight:900;line-height:1;background:linear-gradient(135deg,var(--yellow),#ffe788);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .rev-score .stars{color:var(--star);font-size:17px;letter-spacing:2px}
 .rev-score .small{font-size:12px;color:var(--grey);font-weight:600;margin-top:4px}
-
 .rev-carousel-wrap{position:relative;max-width:1180px;margin:0 auto}
 .rev-carousel{display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;padding:10px 4px 24px;scrollbar-width:none;-ms-overflow-style:none;cursor:grab}
 .rev-carousel::-webkit-scrollbar{display:none}
@@ -454,7 +451,7 @@ footer p{line-height:1.65;font-size:13.5px}
 <!-- Header -->
 <header id="mainHeader">
   <a class="logo" href="#inicio">
-    <img src="logo-voltia.jpg" alt="VOLTIA - Movilidad al Instante" class="logo-img">
+    <img src="./img/logotipo.jpg" alt="VOLTIA - Movilidad al Instante" class="logo-img">
   </a>
   <nav>
     <a href="#baterias">Baterías</a>
@@ -583,19 +580,35 @@ footer p{line-height:1.65;font-size:13.5px}
   <div class="marquee-label">🌎 Marcas mundiales que distribuimos</div>
   <div class="marquee">
     <div class="marquee-track">
-      <div class="marquee-logo-container"><img class="marquee-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Bosch-logotype.svg/512px-Bosch-logotype.svg.png" alt="Bosch" data-fallback="BOSCH"></div>
-      <div class="marquee-logo-container"><img class="marquee-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Varta_Logo.svg/512px-Varta_Logo.svg.png" alt="Varta" data-fallback="VARTA"></div>
-      <div class="marquee-logo-container"><img class="marquee-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Exide_Technologies_logo.svg/512px-Exide_Technologies_logo.svg.png" alt="Exide" data-fallback="EXIDE"></div>
-      <div class="marquee-logo-container"><img class="marquee-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Optima_Batteries_logo.svg/512px-Optima_Batteries_logo.svg.png" alt="Optima" data-fallback="OPTIMA"></div>
-      <div class="marquee-logo-container"><img class="marquee-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Odyssey_Battery_logo.svg/512px-Odyssey_Battery_logo.svg.png" alt="Odyssey" data-fallback="ODYSSEY"></div>
-      <div class="marquee-logo-container"><img class="marquee-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/ACDelco_logo.svg/512px-ACDelco_logo.svg.png" alt="AC Delco" data-fallback="AC DELCO"></div>
-      <!-- Duplicado -->
-      <div class="marquee-logo-container"><img class="marquee-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Bosch-logotype.svg/512px-Bosch-logotype.svg.png" alt="Bosch" data-fallback="BOSCH"></div>
-      <div class="marquee-logo-container"><img class="marquee-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Varta_Logo.svg/512px-Varta_Logo.svg.png" alt="Varta" data-fallback="VARTA"></div>
-      <div class="marquee-logo-container"><img class="marquee-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Exide_Technologies_logo.svg/512px-Exide_Technologies_logo.svg.png" alt="Exide" data-fallback="EXIDE"></div>
-      <div class="marquee-logo-container"><img class="marquee-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Optima_Batteries_logo.svg/512px-Optima_Batteries_logo.svg.png" alt="Optima" data-fallback="OPTIMA"></div>
-      <div class="marquee-logo-container"><img class="marquee-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Odyssey_Battery_logo.svg/512px-Odyssey_Battery_logo.svg.png" alt="Odyssey" data-fallback="ODYSSEY"></div>
-      <div class="marquee-logo-container"><img class="marquee-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/ACDelco_logo.svg/512px-ACDelco_logo.svg.png" alt="AC Delco" data-fallback="AC DELCO"></div>
+      <!-- Set 1 -->
+      <div class="marquee-logo-container"><img class="marquee-logo" src="./img/boch.png" alt="Bosch" data-fallback="BOSCH"></div>
+      <div class="marquee-logo-container"><img class="marquee-logo" src="./img/varta.png" alt="Varta" data-fallback="VARTA"></div>
+      <div class="marquee-logo-container"><img class="marquee-logo" src="./img/exide.png" alt="Exide" data-fallback="EXIDE"></div>
+      <div class="marquee-logo-container"><img class="marquee-logo" src="./img/acdelco.jpeg" alt="AC Delco" data-fallback="AC DELCO"></div>
+      <div class="marquee-logo-container"><img class="marquee-logo" src="./img/delphi.jpeg" alt="Delphi" data-fallback="DELPHI"></div>
+      <div class="marquee-logo-container"><img class="marquee-logo" src="./img/yuasa.jpeg" alt="Yuasa" data-fallback="YUASA"></div>
+      <div class="marquee-logo-container"><img class="marquee-logo" src="./img/EnerSys.png" alt="EnerSys" data-fallback="ENERSYS"></div>
+      <div class="marquee-logo-container"><img class="marquee-logo" src="./img/moura.png" alt="Moura" data-fallback="MOURA"></div>
+      <div class="marquee-logo-container"><img class="marquee-logo" src="./img/hanccok.png" alt="Hankook" data-fallback="HANKOOK"></div>
+      <div class="marquee-logo-container"><img class="marquee-logo" src="./img/willard.png" alt="Willard" data-fallback="WILLARD"></div>
+      <div class="marquee-logo-container"><img class="marquee-logo" src="./img/powercell.png" alt="PowerCell" data-fallback="POWERCELL"></div>
+      <div class="marquee-logo-container"><img class="marquee-logo" src="./img/stp.png" alt="STP" data-fallback="STP"></div>
+      <div class="marquee-logo-container"><img class="marquee-logo" src="./img/delfi.png" alt="Delfi" data-fallback="DELFI"></div>
+      
+      <!-- Set 2 (Copia exacta para el bucle) -->
+      <div class="marquee-logo-container"><img class="marquee-logo" src="./img/boch.png" alt="Bosch" data-fallback="BOSCH"></div>
+      <div class="marquee-logo-container"><img class="marquee-logo" src="./img/varta.png" alt="Varta" data-fallback="VARTA"></div>
+      <div class="marquee-logo-container"><img class="marquee-logo" src="./img/exide.png" alt="Exide" data-fallback="EXIDE"></div>
+      <div class="marquee-logo-container"><img class="marquee-logo" src="./img/acdelco.jpeg" alt="AC Delco" data-fallback="AC DELCO"></div>
+      <div class="marquee-logo-container"><img class="marquee-logo" src="./img/delphi.jpeg" alt="Delphi" data-fallback="DELPHI"></div>
+      <div class="marquee-logo-container"><img class="marquee-logo" src="./img/yuasa.jpeg" alt="Yuasa" data-fallback="YUASA"></div>
+      <div class="marquee-logo-container"><img class="marquee-logo" src="./img/EnerSys.png" alt="EnerSys" data-fallback="ENERSYS"></div>
+      <div class="marquee-logo-container"><img class="marquee-logo" src="./img/moura.png" alt="Moura" data-fallback="MOURA"></div>
+      <div class="marquee-logo-container"><img class="marquee-logo" src="./img/hanccok.png" alt="Hankook" data-fallback="HANKOOK"></div>
+      <div class="marquee-logo-container"><img class="marquee-logo" src="./img/willard.png" alt="Willard" data-fallback="WILLARD"></div>
+      <div class="marquee-logo-container"><img class="marquee-logo" src="./img/powercell.png" alt="PowerCell" data-fallback="POWERCELL"></div>
+      <div class="marquee-logo-container"><img class="marquee-logo" src="./img/stp.png" alt="STP" data-fallback="STP"></div>
+      <div class="marquee-logo-container"><img class="marquee-logo" src="./img/delfi.png" alt="Delfi" data-fallback="DELFI"></div>
     </div>
   </div>
 </div>
@@ -604,17 +617,23 @@ footer p{line-height:1.65;font-size:13.5px}
   <div class="marquee-label">🇨🇱 Marcas disponibles en Chile</div>
   <div class="marquee reverse">
     <div class="marquee-track">
-      <div class="marquee-logo-container"><img class="marquee-logo" src="https://logo.clearbit.com/moura.com.br" alt="Moura" data-fallback="MOURA"></div>
-      <div class="marquee-logo-container"><img class="marquee-logo" src="https://logo.clearbit.com/hankooktire.com" alt="Hankook" data-fallback="HANKOOK"></div>
-      <div class="marquee-logo-container"><img class="marquee-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Exide_Technologies_logo.svg/512px-Exide_Technologies_logo.svg.png" alt="Ultrabat" data-fallback="ULTRABAT"></div>
-      <div class="marquee-logo-container"><img class="marquee-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Bosch-logotype.svg/512px-Bosch-logotype.svg.png" alt="Bosch Chile" data-fallback="BOSCH"></div>
-      <div class="marquee-logo-container"><img class="marquee-logo" src="https://logo.clearbit.com/moura.com.br" alt="Moura" data-fallback="MOURA"></div>
-      <!-- Duplicado -->
-      <div class="marquee-logo-container"><img class="marquee-logo" src="https://logo.clearbit.com/moura.com.br" alt="Moura" data-fallback="MOURA"></div>
-      <div class="marquee-logo-container"><img class="marquee-logo" src="https://logo.clearbit.com/hankooktire.com" alt="Hankook" data-fallback="HANKOOK"></div>
-      <div class="marquee-logo-container"><img class="marquee-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Exide_Technologies_logo.svg/512px-Exide_Technologies_logo.svg.png" alt="Ultrabat" data-fallback="ULTRABAT"></div>
-      <div class="marquee-logo-container"><img class="marquee-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Bosch-logotype.svg/512px-Bosch-logotype.svg.png" alt="Bosch Chile" data-fallback="BOSCH"></div>
-      <div class="marquee-logo-container"><img class="marquee-logo" src="https://logo.clearbit.com/moura.com.br" alt="Moura" data-fallback="MOURA"></div>
+      <!-- Set 1 -->
+      <div class="marquee-logo-container"><img class="marquee-logo" src="./img/moura.png" alt="Moura" data-fallback="MOURA"></div>
+      <div class="marquee-logo-container"><img class="marquee-logo" src="./img/hanccok.png" alt="Hankook" data-fallback="HANKOOK"></div>
+      <div class="marquee-logo-container"><img class="marquee-logo" src="./img/willard.png" alt="Willard" data-fallback="WILLARD"></div>
+      <div class="marquee-logo-container"><img class="marquee-logo" src="./img/powercell.png" alt="PowerCell" data-fallback="POWERCELL"></div>
+      <div class="marquee-logo-container"><img class="marquee-logo" src="./img/stp.png" alt="STP" data-fallback="STP"></div>
+      <div class="marquee-logo-container"><img class="marquee-logo" src="./img/boch.png" alt="Bosch" data-fallback="BOSCH"></div>
+      <div class="marquee-logo-container"><img class="marquee-logo" src="./img/varta.png" alt="Varta" data-fallback="VARTA"></div>
+      
+      <!-- Set 2 (Copia exacta para el bucle) -->
+      <div class="marquee-logo-container"><img class="marquee-logo" src="./img/moura.png" alt="Moura" data-fallback="MOURA"></div>
+      <div class="marquee-logo-container"><img class="marquee-logo" src="./img/hanccok.png" alt="Hankook" data-fallback="HANKOOK"></div>
+      <div class="marquee-logo-container"><img class="marquee-logo" src="./img/willard.png" alt="Willard" data-fallback="WILLARD"></div>
+      <div class="marquee-logo-container"><img class="marquee-logo" src="./img/powercell.png" alt="PowerCell" data-fallback="POWERCELL"></div>
+      <div class="marquee-logo-container"><img class="marquee-logo" src="./img/stp.png" alt="STP" data-fallback="STP"></div>
+      <div class="marquee-logo-container"><img class="marquee-logo" src="./img/boch.png" alt="Bosch" data-fallback="BOSCH"></div>
+      <div class="marquee-logo-container"><img class="marquee-logo" src="./img/varta.png" alt="Varta" data-fallback="VARTA"></div>
     </div>
   </div>
 </div>
@@ -640,6 +659,7 @@ footer p{line-height:1.65;font-size:13.5px}
       
       <div class="car-logos-marquee">
         <div class="car-logos-track">
+          <!-- Se mantienen los logos de autos ya que no proporcionaste otros nuevos para esta sección -->
           <img src="https://cdn.jsdelivr.net/gh/filippofilip95/car-logos-dataset@master/logos/optimized/chevrolet.png" alt="Chevrolet" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Chevrolet-logo.svg/512px-Chevrolet-logo.svg.png'">
           <img src="https://cdn.jsdelivr.net/gh/filippofilip95/car-logos-dataset@master/logos/optimized/toyota.png" alt="Toyota">
           <img src="https://cdn.jsdelivr.net/gh/filippofilip95/car-logos-dataset@master/logos/optimized/nissan.png" alt="Nissan">
@@ -671,7 +691,7 @@ footer p{line-height:1.65;font-size:13.5px}
     </div>
 
     <div class="diag-img-right reveal">
-      <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Instalación de batería para todas las marcas de autos">
+      <img src="./img/instaladorbatt.jpg" alt="Instalación de batería para todas las marcas de autos">
       <div class="diag-glow-right"></div>
     </div>
   </div>
@@ -681,7 +701,7 @@ footer p{line-height:1.65;font-size:13.5px}
 <section class="diagonal-sec">
   <div class="diag-container">
     <div class="diag-img-left reveal">
-      <img src="https://images.unsplash.com/photo-1620825937374-87fc7d6bddc2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Técnico de VOLTIA revisando motor">
+      <img src="./img/instalacion1.jpg" alt="Técnico de VOLTIA revisando motor">
       <div class="diag-glow-left"></div>
     </div>
 
@@ -736,7 +756,7 @@ footer p{line-height:1.65;font-size:13.5px}
     <div class="showcase-grid">
       <div class="showcase-image reveal">
         <div class="product-image-container">
-          <img src="https://pngimg.com/uploads/car_battery/car_battery_PNG55.png" alt="Batería de auto de alto rendimiento VOLTIA">
+          <img src="./img/automotive_battery_PNG99498.png" alt="Batería de auto de alto rendimiento VOLTIA">
         </div>
         <div class="floating-badge">
           <span class="badge-icon">🛡️</span>
@@ -809,7 +829,7 @@ footer p{line-height:1.65;font-size:13.5px}
       <div class="cat-card reveal" data-category="auto" data-tilt>
         <div class="cat-card-img">
           <span class="cat-badge red">-15%</span>
-          <img src="https://pngimg.com/uploads/car_battery/car_battery_PNG55.png" alt="Batería 12V 70Ah">
+          <img src="./img/automotive_battery_PNG12085.png" alt="Batería 12V 70Ah">
         </div>
         <div class="cat-card-body">
           <div class="cat-brand">BOSCH · S4</div>
@@ -831,7 +851,7 @@ footer p{line-height:1.65;font-size:13.5px}
       <div class="cat-card reveal" data-category="suv" data-tilt>
         <div class="cat-card-img">
           <span class="cat-badge">Más vendida</span>
-          <img src="https://pngimg.com/uploads/car_battery/car_battery_PNG55.png" alt="Batería 12V 90Ah">
+          <img src="./img/automotive_battery_PNG12086.png" alt="Batería 12V 90Ah">
         </div>
         <div class="cat-card-body">
           <div class="cat-brand">MOURA · Clean</div>
@@ -853,7 +873,7 @@ footer p{line-height:1.65;font-size:13.5px}
       <div class="cat-card reveal" data-category="auto" data-tilt>
         <div class="cat-card-img">
           <span class="cat-badge">Económica</span>
-          <img src="https://pngimg.com/uploads/car_battery/car_battery_PNG55.png" alt="Batería 12V 55Ah">
+          <img src="./img/automotive_battery_PNG12101.png" alt="Batería 12V 55Ah">
         </div>
         <div class="cat-card-body">
           <div class="cat-brand">WILLARD · Eco</div>
@@ -875,7 +895,7 @@ footer p{line-height:1.65;font-size:13.5px}
       <div class="cat-card reveal" data-category="moto" data-tilt>
         <div class="cat-card-img">
           <span class="cat-badge">Motos</span>
-          <img src="https://pngimg.com/uploads/car_battery/car_battery_PNG55.png" alt="Batería para Moto">
+          <img src="./img/automotive_battery_PNG99500.png" alt="Batería para Moto">
         </div>
         <div class="cat-card-body">
           <div class="cat-brand">YUASA · AGM</div>
@@ -932,7 +952,7 @@ footer p{line-height:1.65;font-size:13.5px}
     </div>
 
     <div class="diag-img-right reveal">
-      <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Proceso de instalación de batería VOLTIA">
+      <img src="./img/instalacion2.jpg" alt="Proceso de instalación de batería VOLTIA">
       <div class="diag-glow-right"></div>
     </div>
   </div>
@@ -988,7 +1008,6 @@ footer p{line-height:1.65;font-size:13.5px}
     </div>
     <div class="rev-head reveal">
       <div class="rev-score">
-        <!-- Logo de Google integrado -->
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" alt="Google Logo" class="google-logo-icon">
         <div class="big">4.9</div>
         <div>
@@ -1066,7 +1085,7 @@ footer p{line-height:1.65;font-size:13.5px}
   <div class="foot-inner">
     <div class="foot-grid">
       <div>
-        <img src="logo-voltia.jpg" alt="VOLTIA - Movilidad al Instante" class="footer-logo">
+        <img src="./img/logotipo.jpg" alt="VOLTIA - Movilidad al Instante" class="footer-logo">
         <p>Movilidad al instante. Baterías nuevas con instalación a domicilio en toda la Región Metropolitana. Llegamos en 60 minutos, con garantía de 24 meses.</p>
       </div>
       <div>
