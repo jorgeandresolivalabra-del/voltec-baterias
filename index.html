@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VOLTIA — Tu batería nueva, donde estés</title>
+<meta name="description" content="Instalación Express de baterías a domicilio en Santiago. Solicita asistencia y llegamos hasta tu dirección.">
+<style>
+/* ============ VOLTIA — Movilidad al Instante ============
+   Paleta de marca (ficha oficial):
+   Amarillo Caterpillar #FFCD00 · Negro #000000
+   Blanco #FFFFFF · Grafito #7F7F7F
+======================================================== */
+:root{--yellow:#FFCD00;--black:#000;--white:#fff;--grey:#7F7F7F;--soft:#f4f4f4;--wa:#25d366}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Segoe UI',system-ui,-apple-system,Arial,sans-serif;color:var(--black);background:var(--white)}
+h1,h2,h3,.btn{font-weight:800}
+
+/* ---------- Header ---------- */
+header{position:sticky;top:0;z-index:50;background:var(--black);color:#fff;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:8px}
+.logo-img{width:170px;height:auto;filter:drop-shadow(0 0 6px rgba(255,205,0,.35))}
+.logo svg{display:none}
+.logo .name{font-size:22px;font-weight:900;letter-spacing:1px}
+.logo .tag{display:block;font-size:9px;font-weight:400;color:#bbb;letter-spacing:2px;text-transform:uppercase}
+nav{display:flex;gap:20px;align-items:center}
+nav a{color:#eee;text-decoration:none;font-size:14px;font-weight:600}
+nav a:hover{color:var(--yellow)}
+.btn-cta{background:var(--yellow);color:var(--black);border:none;border-radius:50px;padding:10px 22px;font-weight:800;font-size:14px;cursor:pointer;text-decoration:none}
+.btn-cta:hover{filter:brightness(1.08);transform:translateY(-1px)}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;min-height:78vh;display:flex;align-items:center;justify-content:flex-start;padding:60px 6vw;background:linear-gradient(rgba(0,0,0,.62),rgba(0,0,0,.72)),url('https://media.base44.com/images/public/6a7034c72b3e4dca9d971e79/6f70fab9e_generated_image.png') center/cover no-repeat}
+.hero-box{max-width:640px;color:#fff}
+.hero h1{font-size:clamp(30px,5vw,54px);line-height:1.08}
+.hero h1 span{color:var(--yellow)}
+.hero p{font-size:clamp(15px,2vw,19px);margin:16px 0 28px;color:#eee}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn-main{background:var(--yellow);color:var(--black);text-decoration:none;font-weight:900;padding:16px 30px;border-radius:50px;font-size:16px}
+.btn-main:hover{filter:brightness(1.08)}
+.btn-wa{background:transparent;color:#fff;text-decoration:none;font-weight:800;padding:16px 26px;border-radius:50px;border:2px solid var(--wa);font-size:15px}
+.btn-wa:hover{background:var(--wa);color:#fff}
+
+/* ---------- Barra de confianza ---------- */
+.trust{background:var(--yellow);display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;padding:18px 6vw;text-align:center}
+.trust div{font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center;gap:8px}
+.trust .ico{font-size:20px}
+
+/* ---------- Secciones ---------- */
+section{padding:64px 6vw}
+.title{text-align:center;max-width:680px;margin:0 auto 40px}
+.title h2{font-size:clamp(24px,4vw,34px)}
+.title p{color:var(--grey);margin-top:10px;font-size:15px}
+
+/* Íconos de propuesta de valor */
+.icons{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;max-width:1000px;margin:0 auto}
+.icon-card{background:var(--soft);border-radius:18px;padding:30px 24px;text-align:center}
+.icon-card .ico{width:62px;height:62px;margin:0 auto 14px;border-radius:50%;background:var(--black);color:var(--yellow);display:flex;align-items:center;justify-content:center;font-size:26px}
+.icon-card h3{font-size:17px;margin-bottom:8px}
+.icon-card p{font-size:14px;color:#555}
+
+/* Catálogo baterías */
+.cat{background:var(--soft)}
+.grid-bat{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;max-width:1000px;margin:0 auto}
+.bat-card{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 8px 28px rgba(0,0,0,.08);transition:.25s}
+.bat-card:hover{transform:translateY(-4px)}
+.bat-card img{width:100%;height:190px;object-fit:cover}
+.bat-card .body{padding:20px}
+.bat-card h3{font-size:18px}
+.bat-card p{font-size:13.5px;color:#555;margin:8px 0 14px}
+.badge{display:inline-block;background:var(--black);color:var(--yellow);font-size:11px;font-weight:800;padding:4px 12px;border-radius:50px;letter-spacing:1px}
+.btn-bat{display:block;text-align:center;background:var(--yellow);color:var(--black);text-decoration:none;font-weight:900;padding:12px;border-radius:50px;margin-top:8px;font-size:14px}
+.btn-bat:hover{filter:brightness(1.08)}
+
+/* Servicios */
+.serv-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:24px;max-width:1000px;margin:0 auto}
+.serv{border:2px solid #eee;border-radius:18px;padding:26px 22px}
+.serv .ico{font-size:28px}
+.serv h3{font-size:16px;margin:10px 0 6px}
+.serv p{font-size:13.5px;color:#555}
+
+/* Proceso */
+.proc{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px;max-width:960px;margin:0 auto;counter-reset:step}
+.step{background:#fff;border:2px solid #eee;border-radius:16px;padding:24px 18px;position:relative;counter-increment:step}
+.step::before{content:counter(step);position:absolute;top:-16px;left:18px;background:var(--yellow);color:var(--black);font-weight:900;width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:3px solid #fff}
+.step h3{font-size:15px;margin-top:6px;margin-bottom:6px}
+.step p{font-size:13.5px;color:#555}
+
+/* CTA final */
+.cta{background:var(--yellow);text-align:center;padding:70px 6vw}
+.cta h2{font-size:clamp(24px,4vw,36px);max-width:720px;margin:0 auto 10px}
+.cta p{font-weight:600;margin-bottom:26px}
+.cta a{background:var(--black);color:var(--yellow);text-decoration:none;font-weight:900;padding:18px 36px;border-radius:50px;font-size:17px;display:inline-block}
+.cta a:hover{transform:translateY(-2px)}
+
+/* Footer */
+footer{background:var(--black);color:#ccc;padding:44px 6vw 90px;font-size:14px}
+.foot-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:26px;max-width:1000px;margin:0 auto}
+footer h4{color:#fff;margin-bottom:10px}
+footer a{color:#ccc;text-decoration:none}
+footer a:hover{color:var(--yellow)}
+footer li{list-style:none;padding:3px 0}
+.rotulo{text-align:center;margin-top:30px;padding-top:18px;border-top:1px solid #222;font-size:12px;color:#888}
+
+/* WhatsApp flotante */
+.wa-float{position:fixed;right:16px;bottom:16px;z-index:99;background:var(--wa);color:#fff;border-radius:50px;padding:14px 20px;font-weight:800;box-shadow:0 8px 24px rgba(0,0,0,.3);text-decoration:none;display:flex;gap:8px;align-items:center}
+@media(max-width:640px){.wa-float span{display:none}.wa-float{padding:14px}}
+</style>
+</head>
+<body id="inicio">
+
+<header>
+  <a class="logo" href="#inicio" style="color:#fff;text-decoration:none">
+    <img class="logo-img" src="https://media.base44.com/images/public/6a7034c72b3e4dca9d971e79/39aef8449_voltia_logo2_header.png" alt="VOLTIA — Movilidad al Instante">
+  </a>
+  <nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#baterias">Baterías</a>
+    <a href="#servicios">Servicios</a>
+  </nav>
+  <a class="btn-cta" href="#cotizar">Agendar cita</a>
+</header>
+
+<div class="hero">
+  <div class="hero-box">
+    <h1>Tu batería nueva, <span>donde estés.</span></h1>
+    <p>Instalación Express a domicilio en Santiago. Técnicos que llegan hasta tu dirección, instalan tu batería nueva y dejan tu auto listo.</p>
+    <div class="hero-btns">
+      <a class="btn-main" id="cotizar" href="https://wa.me/56900000000?text=Hola%20VOLTIA%2C%20necesito%20asistencia%20con%20la%20bater%C3%ADa%20de%20mi%20auto" target="_blank" rel="noopener">⚡ Solicitar Asistencia</a>
+      <a class="btn-wa" href="#baterias">Ver baterías</a>
+    </div>
+  </div>
+</div>
+
+<div class="trust">
+  <div><span class="ico">⏱️</span> Servicio Rápido</div>
+  <div><span class="ico">🔋</span> Catálogo de Baterías</div>
+  <div><span class="ico">♾️</span> Proceso Simple</div>
+  <div><span class="ico">📍</span> A domicilio, donde estés</div>
+</div>
+
+<section>
+  <div class="title"><h2>Por qué VOLTIA</h2><p>Tres razones por las que cada vez más conductores de Santiago nos llaman.</p></div>
+  <div class="icons">
+    <div class="icon-card"><div class="ico">⏱️</div><h3>Servicio Rápido</h3><p>Coordinamos tu solicitud por WhatsApp y el técnico sale a tu dirección.</p></div>
+    <div class="icon-card"><div class="ico">🔋</div><h3>Catálogo de Baterías</h3><p>Baterías nuevas según el modelo de tu vehículo. Te ayudamos a elegir la correcta.</p></div>
+    <div class="icon-card"><div class="ico">♾️</div><h3>Proceso Simple</h3><p>Escribes, cotizas, coordinas y listo. Sin traslados ni esperas en taller.</p></div>
+  </div>
+</section>
+
+<section class="cat" id="baterias">
+  <div class="title"><h2>Catálogo de Baterías</h2><p>Pregúntanos por la batería exacta de tu vehículo: la confirmamos y te llevamos el precio final por WhatsApp.</p></div>
+  <div class="grid-bat">
+    <div class="bat-card">
+      <img src="https://media.base44.com/images/public/6a7034c72b3e4dca9d971e79/9065bb67f_voltia_bateria_producto.jpg" alt="Batería VOLTIA Power Cell 12V 70Ah">
+      <div class="body">
+        <span class="badge">POWER CELL</span>
+        <h3>Batería 12V 70Ah</h3>
+        <p>Formato estándar para sedanes y SUV diésel/bencina. Instalación incluida a domicilio.</p>
+        <a class="btn-bat" href="https://wa.me/56900000000?text=Hola%20VOLTIA%2C%20quiero%20cotizar%20la%20bater%C3%ADa%2070Ah%20para%20mi%20auto" target="_blank" rel="noopener">Cotizar por WhatsApp</a>
+      </div>
+    </div>
+    <div class="bat-card">
+      <img src="https://media.base44.com/images/public/6a7034c72b3e4dca9d971e79/6f70fab9e_generated_image.png" alt="Técnico VOLTIA instalando batería a domicilio">
+      <div class="body">
+        <span class="badge">A TU MEDIDA</span>
+        <h3>Batería para tu modelo</h3>
+        <p>Indícanos marca, modelo y año de tu vehículo y te cotizamos la batería correcta.</p>
+        <a class="btn-bat" href="https://wa.me/56900000000?text=Hola%20VOLTIA%2C%20mi%20veh%C3%ADculo%20es%3A%20(marca%2Fmodelo%2Fa%C3%B1o)" target="_blank" rel="noopener">Cotizar mi vehículo</a>
+      </div>
+    </div>
+    <div class="bat-card">
+      <img src="https://media.base44.com/images/public/6a7034c72b3e4dca9d971e79/20964d747_generated_image.png" alt="Flota VOLTIA de servicio exprés">
+      <div class="body">
+        <span class="badge">EMPRESAS</span>
+        <h3>Flotas y empresas</h3>
+        <p>Mantención de baterías para vehículos de empresa, con atención priorizada.</p>
+        <a class="btn-bat" href="https://wa.me/56900000000?text=Hola%20VOLTIA%2C%20represento%20una%20empresa%20y%20quiero%20informaci%C3%B3n%20para%20flota" target="_blank" rel="noopener">Hablar con VOLTIA</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="servicios">
+  <div class="title"><h2>Servicios</h2><p>Lo que hacemos en cada visita.</p></div>
+  <div class="serv-grid">
+    <div class="serv"><div class="ico">⚡</div><h3>Instalación Express</h3><p>Reemplazo de tu batería en tu casa, oficina o donde el auto esté detenido.</p></div>
+    <div class="serv"><div class="ico">🔎</div><h3>Diagnóstico en terreno</h3><p>Verificamos que la falla sea la batería antes de cambiarla. Sin sorpresas.</p></div>
+    <div class="serv"><div class="ico">♻️</div><h3>Retiro de tu batería antigua</h3><p>Nos llevamos la batería usada para su reciclaje responsable.</p></div>
+    <div class="serv"><div class="ico">✅</div><h3>Prueba de partida</h3><p>Tu auto encendido y revisado antes de que el técnico se retire.</p></div>
+  </div>
+</section>
+
+<section class="cat">
+  <div class="title"><h2>Proceso Simple</h2><p>De la solicitud al auto funcionando, en tres pasos.</p></div>
+  <div class="proc">
+    <div class="step"><h3>Escribe por WhatsApp</h3><p>Nos cuentas qué le pasa a tu auto y dónde está.</p></div>
+    <div class="step"><h3>Cotización y coordinación</h3><p>Te confirmamos la batería correcta, el precio final y la hora de llegada.</p></div>
+    <div class="step"><h3>Instalación y prueba</h3><p>El técnico instala, enciende tu auto y se lleva la batería antigua.</p></div>
+  </div>
+</section>
+
+<div class="cta">
+  <h2>¿Tu auto no parte? No lo empujes. Llámanos.</h2>
+  <p>VOLTIA — Movilidad al Instante · Santiago</p>
+  <a href="https://wa.me/56900000000?text=Hola%20VOLTIA%2C%20necesito%20asistencia%20express%20con%20mi%20bater%C3%ADa" target="_blank" rel="noopener">⚡ Solicitar Asistencia</a>
+</div>
+
+<footer>
+  <div class="foot-grid">
+    <div>
+      <img src="https://media.base44.com/images/public/6a7034c72b3e4dca9d971e79/39aef8449_voltia_logo2_header.png" alt="VOLTIA — Movilidad al Instante" style="width:150px;height:auto;margin-bottom:10px">
+      <p>Movilidad al Instante. Baterías nuevas con instalación a domicilio en Santiago.</p>
+    </div>
+    <div>
+      <h4>Servicios</h4>
+      <ul>
+        <li><a href="#baterias">Catálogo de baterías</a></li>
+        <li><a href="#servicios">Instalación Express</a></li>
+        <li><a href="#servicios">Diagnóstico en terreno</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contacto</h4>
+      <ul>
+        <li>WhatsApp: +56 9 0000 0000 <span style="color:#666">(editar)</span></li>
+        <li>Santiago, Región Metropolitana</li>
+      </ul>
+    </div>
+  </div>
+  <div class="rotulo">Propuesta de diseño — Go Clientes | Impulso Tech · Los datos de contacto y precios son referencial es y deben confirmarse antes de publicar.</div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/56900000000?text=Hola%20VOLTIA%2C%20necesito%20asistencia%20con%20mi%20bater%C3%ADa" target="_blank" rel="noopener">🟢 <span>Asistencia por WhatsApp</span></a>
+
+</body>
+</html>
