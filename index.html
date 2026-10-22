@@ -504,6 +504,51 @@ header{padding-top:12px;padding-bottom:12px;min-height:82px}
 @media(max-width:992px){.commune-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.logo-img{height:60px}.coverage-photo-strip{height:240px}.map-container iframe{height:320px}}
 @media(max-width:640px){header{min-height:70px;padding:8px 5vw}.logo{min-width:0}.logo-img{height:49px;max-width:175px}.coverage{padding:68px 5vw}.coverage .title{margin-bottom:25px}.coverage .title p{font-size:14px}.commune-grid{grid-template-columns:1fr;gap:9px}.commune{min-height:58px}.coverage-photo-strip{height:280px;margin:25px auto 30px}.coverage-photo-strip img{object-position:58% center}.coverage-photo-strip::after{background:linear-gradient(90deg,rgba(0,0,0,.82),rgba(0,0,0,.35))}.coverage-photo-copy{left:22px;right:18px}.coverage-photo-copy p{font-size:14px}.map-container iframe{height:280px}.reviews,#faq{padding:65px 5vw}.rev-score{flex-direction:row;text-align:left;justify-content:center;padding:16px}.rev-score .big{font-size:36px}.rev{padding:23px}.faq summary{padding:18px;font-size:14px}.faq .ans{padding:0 18px 20px;font-size:14px}.footer-logo{height:72px}}
 
+
+/* ---------- Mejora visual vanguardia: mapa y preguntas frecuentes ---------- */
+.map-heading{max-width:1120px;margin:48px auto 16px;display:flex;align-items:end;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.map-kicker{display:inline-block;color:var(--yellow);font-size:11px;letter-spacing:1.6px;font-weight:900;margin-bottom:8px}
+.map-heading h3{font-size:clamp(23px,3vw,32px);color:#fff;letter-spacing:-.6px;margin-bottom:6px}
+.map-heading p{color:#bdbdbd;font-size:14px;line-height:1.6}
+.map-open-link{display:inline-flex;align-items:center;gap:8px;padding:12px 17px;border:1px solid rgba(255,205,0,.45);border-radius:999px;color:var(--yellow);font-size:13px;font-weight:800;white-space:nowrap;transition:.2s}
+.map-open-link:hover{background:var(--yellow);color:#111;transform:translateY(-2px)}
+.map-container{background:#f4f4f4;padding:7px;line-height:0}
+.map-container iframe{display:block;width:100%;height:440px;border:0;border-radius:15px;filter:none!important}
+.map-container:hover iframe{filter:none!important}
+.map-disclaimer{max-width:1120px;margin:12px auto 0;color:#aaa;font-size:11.5px;line-height:1.6}
+.google-logo-icon{display:block;width:42px;height:42px;flex:0 0 42px;object-fit:contain;filter:none!important}
+.rev-score{min-width:min(440px,100%);justify-content:center;gap:15px}
+.rev-score .big{-webkit-text-fill-color:initial;background:none;color:#202124;font-size:42px}
+.rev-score .small{max-width:220px;line-height:1.45}
+#faq{position:relative;overflow:hidden;background:linear-gradient(135deg,#f8f9fb 0%,#fff 52%,#fff9df 100%);padding:clamp(68px,8vw,112px) 6vw}
+#faq::before{content:"";position:absolute;width:430px;height:430px;border-radius:50%;right:-190px;top:-170px;background:radial-gradient(circle,rgba(255,205,0,.18),transparent 68%);pointer-events:none}
+#faq .section-inner{position:relative;z-index:1;max-width:1180px;display:grid;grid-template-columns:minmax(280px,.8fr) minmax(0,1.2fr);gap:clamp(32px,6vw,78px);align-items:start}
+.faq-intro{position:sticky;top:125px}
+.faq-intro>.eyebrow{display:inline-flex;background:#fff4bf;color:#665000;border:1px solid #f0d96b;border-radius:999px;padding:8px 13px;font-size:10.5px;font-weight:900;letter-spacing:1.1px}
+.faq-intro h2{font-size:clamp(34px,4vw,49px);line-height:1.05;letter-spacing:-1.8px;margin:22px 0 17px;color:#121212}
+.faq-intro h2 span{color:#a98200}
+.faq-intro>p{font-size:15px;color:#656565;line-height:1.8;max-width:420px;margin-bottom:28px}
+.faq-help-card{background:#111;color:#fff;border-radius:22px;padding:22px;display:grid;grid-template-columns:44px 1fr;gap:14px;box-shadow:0 18px 40px rgba(0,0,0,.13);border:1px solid rgba(255,205,0,.28)}
+.faq-help-icon{width:42px;height:42px;border-radius:14px;display:grid;place-items:center;background:var(--yellow);color:#111;font-size:25px;font-weight:900}
+.faq-help-card strong{display:block;font-size:15px;margin:1px 0 6px}
+.faq-help-card p{font-size:12.5px;color:#c7c7c7;line-height:1.65}
+.faq-help-link{grid-column:2;display:inline-flex;align-items:center;gap:8px;color:var(--yellow);font-size:13px;font-weight:900;margin-top:1px}
+.faq-help-link:hover{gap:13px}
+.faq-trust-points{display:grid;gap:11px;margin-top:23px;color:#4d4d4d;font-size:12px;font-weight:700}
+.faq-trust-points span::first-letter{color:#218a4b}
+.faq-list{max-width:none;width:100%;display:grid;gap:12px}
+.faq{margin:0;border:1px solid #e8e8e8;border-radius:17px;box-shadow:0 5px 18px rgba(20,20,20,.035);background:rgba(255,255,255,.9)}
+.faq:hover{border-color:#e8cf56;box-shadow:0 10px 25px rgba(20,20,20,.06)}
+.faq[open]{border-color:#e7c52b;box-shadow:0 12px 28px rgba(140,110,0,.09)}
+.faq summary{display:grid;grid-template-columns:36px 1fr 20px;justify-content:initial;gap:13px;align-items:center;padding:20px 21px;font-size:14.5px;line-height:1.45}
+.faq summary::after{grid-column:3;grid-row:1;font-size:22px;text-align:center}
+.faq-number{width:32px;height:32px;display:grid;place-items:center;border-radius:10px;background:#f5f5f5;color:#777;font-size:10px;font-weight:900;letter-spacing:.3px}
+.faq[open] .faq-number{background:var(--yellow);color:#171717}
+.faq[open] summary{border-bottom:1px solid #f0e7b9;background:linear-gradient(90deg,#fffdf3,#fff)}
+.faq .ans{padding:17px 24px 22px 70px;font-size:13.5px;line-height:1.8;color:#5d5d5d}
+@media(max-width:850px){#faq .section-inner{grid-template-columns:1fr;gap:32px}.faq-intro{position:static}.faq-intro>p{max-width:620px}.faq-help-card{max-width:600px}.faq-trust-points{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.map-heading{align-items:start}.map-container iframe{height:360px}}
+@media(max-width:560px){.map-heading{margin-top:32px}.map-heading h3{font-size:25px}.map-open-link{padding:10px 13px}.map-container{padding:4px;border-radius:15px}.map-container iframe{height:300px;border-radius:11px}.map-disclaimer{font-size:10.5px}.rev-score{min-width:0;width:100%;padding:16px 13px;gap:11px}.google-logo-icon{width:35px;height:35px;flex-basis:35px}.rev-score .big{font-size:34px}.rev-score .small{font-size:10.5px}.faq-intro h2{font-size:36px}.faq-trust-points{grid-template-columns:1fr;gap:8px}.faq-help-card{padding:18px;grid-template-columns:38px 1fr;gap:11px}.faq-help-icon{width:38px;height:38px}.faq summary{grid-template-columns:29px 1fr 17px;padding:16px 14px;gap:10px;font-size:13.5px}.faq-number{width:28px;height:28px;font-size:9px}.faq .ans{padding:14px 16px 19px 53px;font-size:13px}}
+
 </style>
 </head>
 <body id="inicio">
@@ -1071,9 +1116,14 @@ header{padding-top:12px;padding-bottom:12px;min-height:82px}
       </div>
     </div>
 
-    <div class="map-container reveal">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3329.579409586084!2d-70.66926548480093!3d-33.44888998078157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662c5a02128f971%3A0x8b22547c53b14844!2sSantiago%2C%20Regi%C3%B3n%20Metropolitana%2C%20Chile!5e0!3m2!1ses!2scl!4v1700000000000!5m2!1ses!2scl" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <div class="map-heading reveal">
+      <div><span class="map-kicker">COBERTURA REFERENCIAL</span><h3>Gran Santiago, a la vista</h3><p>Explora la Región Metropolitana y consulta disponibilidad para tu comuna.</p></div>
+      <a href="https://www.google.com/maps/search/?api=1&query=Gran+Santiago%2C+Regi%C3%B3n+Metropolitana%2C+Chile" target="_blank" rel="noopener noreferrer" class="map-open-link">↗ Abrir mapa</a>
     </div>
+    <div class="map-container reveal">
+      <iframe title="Mapa general del Gran Santiago y la Región Metropolitana" src="https://maps.google.com/maps?q=Gran%20Santiago%2C%20Regi%C3%B3n%20Metropolitana%2C%20Chile&t=&z=10&ie=UTF8&iwloc=&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+    </div>
+    <p class="map-disclaimer">El mapa muestra una referencia geográfica general; la cobertura y los tiempos exactos deben confirmarse antes de contratar.</p>
   </div>
 </section>
 
@@ -1086,7 +1136,7 @@ header{padding-top:12px;padding-bottom:12px;min-height:82px}
     </div>
     <div class="rev-head reveal">
       <div class="rev-score">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" alt="Google Logo" class="google-logo-icon">
+        <svg class="google-logo-icon" viewBox="0 0 48 48" role="img" aria-label="Google" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M43.6 24.5c0-1.4-.1-2.8-.4-4.1H24v7.8h11a9.4 9.4 0 0 1-4.1 6.2v5.1h6.6c3.9-3.6 6.1-8.8 6.1-15z"/><path fill="#34A853" d="M24 44c5.5 0 10.1-1.8 13.5-4.9l-6.6-5.1c-1.8 1.2-4.1 2-6.9 2-5.3 0-9.8-3.6-11.4-8.4H5.8v5.3A20 20 0 0 0 24 44z"/><path fill="#FBBC05" d="M12.6 27.6a12 12 0 0 1 0-7.2v-5.3H5.8a20 20 0 0 0 0 17.8z"/><path fill="#EA4335" d="M24 12c3 0 5.7 1 7.8 3.1l5.8-5.8C34.1 5.9 29.5 4 24 4A20 20 0 0 0 5.8 15.1l6.8 5.3C14.2 15.6 18.7 12 24 12z"/></svg>
         <div class="big">4.9</div>
         <div>
           <div class="stars">★★★★★</div>
@@ -1131,17 +1181,24 @@ header{padding-top:12px;padding-bottom:12px;min-height:82px}
 <!-- FAQ -->
 <section id="faq">
   <div class="section-inner">
-    <div class="title reveal">
-      <span class="eyebrow">Preguntas frecuentes</span>
-      <h2>Resolvemos tus dudas</h2>
+    <div class="faq-intro reveal">
+      <span class="eyebrow">AYUDA ANTES DE COMPRAR</span>
+      <h2>Resolvemos tus dudas, <span>sin vueltas.</span></h2>
+      <p>Queremos que sepas qué estás contratando antes de confirmar. Revisa las respuestas más comunes o consulta tu caso directamente.</p>
+      <div class="faq-help-card">
+        <div class="faq-help-icon" aria-hidden="true">?</div>
+        <div><strong>¿No encuentras tu respuesta?</strong><p>Cuéntanos la marca, modelo y año de tu vehículo para orientar la consulta.</p></div>
+        <a href="#contacto" class="faq-help-link">Consultar ahora <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="faq-trust-points"><span>✓ Precio confirmado antes de instalar</span><span>✓ Compatibilidad por confirmar</span><span>✓ Condiciones claras</span></div>
     </div>
-    <div class="faq-list">
-      <details class="faq reveal" open><summary>¿Cuánto demora la instalación?</summary><div class="ans">El técnico llega en un promedio de 60 minutos desde que confirmas la solicitud. La instalación misma toma entre 15 y 20 minutos. En total, en menos de 1 hora y media tienes tu auto funcionando.</div></details>
-      <details class="faq reveal"><summary>¿La instalación es realmente gratis?</summary><div class="ans">Sí, 100% gratis dentro de nuestra zona de cobertura en Santiago. El precio que te cotizamos ya incluye instalación, prueba de partida y retiro de la batería antigua.</div></details>
-      <details class="faq reveal"><summary>¿Qué garantía tienen las baterías?</summary><div class="ans">Todas nuestras baterías cuentan con 24 meses de garantía oficial por escrito. Además, si tienes algún problema, volvemos a tu domicilio sin costo.</div></details>
-      <details class="faq reveal"><summary>¿Cómo sé qué batería necesita mi auto?</summary><div class="ans">Solo escríbenos por WhatsApp con la marca, modelo y año de tu vehículo. Nuestro equipo te confirma la batería exacta en minutos y te envía el precio final.</div></details>
-      <details class="faq reveal"><summary>¿Puedo pagar con tarjeta o transferencia?</summary><div class="ans">Sí. Aceptamos efectivo, transferencia, débito y crédito. Puedes pagar al técnico cuando termine la instalación.</div></details>
-      <details class="faq reveal"><summary>¿Atienden fines de semana y feriados?</summary><div class="ans">Sí, trabajamos de lunes a domingo de 8:00 a 22:00, incluidos feriados. La disponibilidad puede variar en fechas especiales.</div></details>
+    <div class="faq-list reveal">
+      <details class="faq" open><summary><span class="faq-number">01</span><span>¿Cuánto demora la instalación?</span></summary><div class="ans">El tiempo depende de la comuna, el tráfico y la disponibilidad del técnico. La referencia de esta demo es de alrededor de 60 minutos de llegada; la instalación puede tomar otros 15–20 minutos. Confirma el plazo real al solicitar.</div></details>
+      <details class="faq"><summary><span class="faq-number">02</span><span>¿La instalación es realmente gratis?</span></summary><div class="ans">La condición debe confirmarse en la cotización. Antes de aceptar, solicita el precio final y verifica si incluye traslado, instalación, pruebas y retiro de la batería antigua.</div></details>
+      <details class="faq"><summary><span class="faq-number">03</span><span>¿Qué garantía tienen las baterías?</span></summary><div class="ans">La garantía depende de la marca y del modelo. Pide que te indiquen duración, cobertura, exclusiones y comprobante por escrito antes de comprar. Los 24 meses que aparecen en esta demo son ilustrativos.</div></details>
+      <details class="faq"><summary><span class="faq-number">04</span><span>¿Cómo sé qué batería necesita mi auto?</span></summary><div class="ans">Comparte marca, modelo, año, versión y, si es posible, motor o una foto de la etiqueta de la batería actual. La compatibilidad debe verificarse antes de confirmar el pedido.</div></details>
+      <details class="faq"><summary><span class="faq-number">05</span><span>¿Puedo pagar con tarjeta o transferencia?</span></summary><div class="ans">Los medios de pago deben confirmarse con el proveedor antes de agendar. Solicita esta información junto con el precio final para evitar sorpresas.</div></details>
+      <details class="faq"><summary><span class="faq-number">06</span><span>¿Atienden fines de semana y feriados?</span></summary><div class="ans">Los horarios y la disponibilidad pueden variar por comuna y fecha. Confirma la atención para el día y la franja horaria que necesitas.</div></details>
     </div>
   </div>
 </section>
