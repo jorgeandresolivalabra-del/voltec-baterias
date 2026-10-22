@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -575,6 +576,166 @@ section[id],footer[id],div[id]{scroll-margin-top:88px}
   .commune-grid,.communeGrid{grid-template-columns:minmax(0,1fr)}
   .rev{flex-basis:90vw}
 }
+
+
+/* ============ CORRECCIONES PUNTUALES: CTA, FOOTER Y LOGO GOOGLE ============ */
+/* CTA de marcas: elimina la capa animada que puede verse como un rectángulo vacío. */
+.bv-cta-wrap{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:7px;
+  width:max-content;
+  max-width:100%;
+  margin:22px 0 0;
+  padding:0;
+  border:0;
+  background:transparent;
+  box-shadow:none;
+}
+.bv-cta-wrap .btn-main{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:auto;
+  min-width:0;
+  max-width:100%;
+  min-height:48px;
+  margin:0;
+  box-sizing:border-box;
+  white-space:normal;
+  text-align:center;
+  line-height:1.35;
+}
+.bv-cta-wrap .btn-main::before{
+  content:none !important;
+  display:none !important;
+  animation:none !important;
+}
+.bv-cta-sub{
+  display:block !important;
+  width:auto;
+  max-width:100%;
+  min-height:0 !important;
+  margin:0 !important;
+  padding:0 !important;
+  border:0 !important;
+  border-radius:0 !important;
+  background:transparent !important;
+  box-shadow:none !important;
+  color:#555;
+  font-size:13px;
+  font-weight:600;
+  line-height:1.45;
+  white-space:normal;
+}
+.bv-cta-sub::before{
+  content:"✓";
+  display:inline-block;
+  margin-right:7px;
+  color:#159447;
+  font-weight:900;
+}
+
+/* Footer: reduce el hueco inferior y deja que los botones flotantes no lo tapen. */
+footer{
+  padding:48px 6vw 30px !important;
+}
+.foot-grid{margin-bottom:26px;}
+.foot-bottom{
+  padding-top:18px;
+  padding-bottom:0;
+  line-height:1.55;
+}
+.foot-bottom p{margin-bottom:0;}
+
+/* El logo se dibuja dentro del HTML: no depende de que cargue una imagen externa. */
+.google-logo-icon{
+  display:block;
+  width:32px;
+  height:32px;
+  flex:0 0 32px;
+  object-fit:contain;
+}
+.float-cta.is-in-footer{
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+  transform:translateY(10px);
+  transition:opacity .2s ease,transform .2s ease,visibility .2s ease;
+}
+@media(max-width:640px){
+  .bv-cta-wrap{
+    width:100%;
+    align-items:stretch;
+    gap:7px;
+    margin-top:18px;
+  }
+  .bv-cta-wrap .btn-main{
+    width:100%;
+    max-width:100%;
+    min-height:48px;
+    padding:13px 16px;
+    font-size:14px;
+  }
+  .bv-cta-sub{align-self:flex-start;font-size:12px;}
+  footer{padding:36px 5vw 22px !important;}
+  .foot-grid{gap:22px;margin-bottom:22px;}
+  .foot-bottom{padding-top:15px;}
+}
+
+
+
+/* ============ MEJORA VISUAL LOGOTIPO VOLTIA ============ */
+/* Más tamaño y contraste para que la marca se distinga sobre la cabecera oscura. */
+header .logo{
+  flex:0 1 auto;
+  min-width:0;
+  padding:3px 0;
+}
+header .logo-img{
+  display:block;
+  height:66px;
+  width:auto;
+  max-width:248px;
+  padding:5px 12px;
+  object-fit:contain;
+  background:#fff;
+  border:1px solid rgba(255,255,255,.96);
+  border-radius:12px;
+  box-shadow:0 4px 16px rgba(0,0,0,.36),0 0 0 1px rgba(255,255,255,.16);
+  filter:brightness(1.08) contrast(1.04);
+  transition:transform .25s ease,box-shadow .25s ease,filter .25s ease;
+}
+header .logo-img:hover{
+  transform:scale(1.025);
+  filter:brightness(1.1) contrast(1.05);
+  box-shadow:0 6px 20px rgba(0,0,0,.4),0 0 0 2px rgba(255,205,0,.45);
+}
+footer .footer-logo{
+  height:74px;
+  width:auto;
+  max-width:min(100%,248px);
+  max-height:none;
+  padding:5px 12px;
+  object-fit:contain;
+  background:#fff;
+  border:1px solid rgba(255,255,255,.96);
+  border-radius:12px;
+  box-shadow:0 4px 14px rgba(0,0,0,.3);
+}
+@media(max-width:992px){
+  header .logo-img{height:59px;max-width:232px;padding:4px 10px;}
+}
+@media(max-width:640px){
+  header .logo{max-width:calc(100% - 150px);}
+  header .logo-img{height:49px;max-width:100%;padding:4px 8px;border-radius:10px;}
+  footer .footer-logo{height:64px;max-width:min(100%,220px);padding:4px 10px;}
+}
+@media(max-width:380px){
+  header .logo-img{height:44px;padding:3px 7px;}
+}
+
 </style>
 </head>
 <body id="inicio">
@@ -1158,7 +1319,12 @@ section[id],footer[id],div[id]{scroll-margin-top:88px}
     </div>
     <div class="rev-head reveal">
       <div class="rev-score">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" alt="Google Logo" class="google-logo-icon">
+        <svg class="google-logo-icon" viewBox="0 0 48 48" role="img" aria-label="Google" focusable="false">
+          <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+          <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.76 7.18l7.73 6C44.42 37.98 46.98 31.89 46.98 24.55z"/>
+          <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-3-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24s.92 7.54 2.56 10.78l7.97-6.19z"/>
+          <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.91-5.8l-7.73-6c-2.15 1.45-4.92 2.3-8.18 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+        </svg>
         <div class="big">4.9</div>
         <div>
           <div class="stars">★★★★★</div>
@@ -1494,10 +1660,23 @@ revCarousel.addEventListener('mousemove', e => {
   const x = e.pageX - revCarousel.offsetLeft;
   revCarousel.scrollLeft = scrollLeft - (x - startX) * 1.5;
 });
+
+
+/* Evita que los botones flotantes tapen el pie de página; el footer ya ofrece contacto. */
+const voltiaFooter = document.getElementById('contacto');
+const voltiaFloatingContact = document.querySelector('.float-cta');
+if (voltiaFooter && voltiaFloatingContact && 'IntersectionObserver' in window) {
+  const voltiaFooterObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      voltiaFloatingContact.classList.toggle('is-in-footer', entry.isIntersecting);
+    });
+  }, { threshold: 0.01 });
+  voltiaFooterObserver.observe(voltiaFooter);
+}
+
 </script>
 
 </body>
 </html>
 
 
-⋮⋮⋮⋮
