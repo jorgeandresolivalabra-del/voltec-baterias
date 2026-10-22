@@ -217,14 +217,7 @@ body{min-width:0;overflow-x:clip}
 
 /* ============================================================
    CRO OPTIMIZATIONS — Ads conversion boost
-   1. Message match badge
-   2. Single dominant CTA (WhatsApp)
-   3. Social proof next to CTA
-   4. Trust badges row
-   5. Live pill reduced-motion
    ============================================================ */
-
-/* 1. MESSAGE MATCH */
 .hero-promise{
   display:inline-flex;
   align-items:center;
@@ -241,8 +234,6 @@ body{min-width:0;overflow-x:clip}
   line-height:1.25;
   max-width:100%;
 }
-
-/* 2. CTA DOMINANTE — WhatsApp primero */
 .hero-ctas{
   display:flex !important;
   flex-wrap:wrap;
@@ -304,8 +295,6 @@ body{min-width:0;overflow-x:clip}
   color:var(--yellow);
   box-shadow:none;
 }
-
-/* 3. SOCIAL PROOF */
 .hero-social-proof{
   display:flex;
   flex-wrap:wrap;
@@ -319,8 +308,6 @@ body{min-width:0;overflow-x:clip}
 .hero-social-proof .rating{color:var(--yellow); font-size:.8rem; letter-spacing:1.5px; font-weight:700; white-space:nowrap;}
 .hero-social-proof .divider{color:rgba(255,255,255,.28)}
 .hero-social-proof .quote{font-style:italic; color:rgba(255,255,255,.55);}
-
-/* 4. TRUST BADGES */
 .hero-trust{
   display:flex;
   flex-wrap:wrap;
@@ -339,19 +326,13 @@ body{min-width:0;overflow-x:clip}
   white-space:nowrap;
 }
 .hero-trust svg{width:16px; height:16px; color:var(--yellow); flex:0 0 auto;}
-
-/* 5. LIVE PILL reduced motion */
 @media (prefers-reduced-motion: reduce){
   .live-dot{animation:none !important}
 }
-
-/* Tablet: apilar secundarios */
 @media (max-width:1040px){
   .hero-ctas .btn-call,
   .hero-ctas .btn-primary{flex:1 1 100%}
 }
-
-/* Móvil */
 @media (max-width:560px){
   .hero-promise{font-size:.7rem; padding:6px 11px; margin-bottom:12px; letter-spacing:.03em;}
   .hero-ctas{gap:9px}
@@ -362,6 +343,324 @@ body{min-width:0;overflow-x:clip}
   .hero-social-proof .rating{font-size:.76rem; letter-spacing:1px;}
   .hero-trust{display:grid; grid-template-columns:1fr; gap:10px; margin-top:16px;}
   .hero-trust li{white-space:normal; font-size:.74rem;}
+}
+
+/* ============================================================
+   TIPOGRAFÍA COMPETITIVA — Legibilidad tipo competencia
+   Base cuerpo: 15–16px · Labels: 13–14px · Legal: 12px
+   H1/H2/precio/CTA intocados (jerarquía intacta)
+   ============================================================ */
+body{
+  font-size:16px;
+  line-height:1.6;
+  -webkit-text-size-adjust:100%;
+}
+.main-nav a{
+  font-size:.9rem;
+  font-weight:700;
+}
+.header-actions .btn-label{
+  font-size:.78rem;
+}
+.hero-lead{
+  font-size:clamp(1.08rem,1.6vw,1.22rem);
+  line-height:1.6;
+  color:#d8dddd;
+}
+.live-pill{
+  font-size:.82rem;
+  padding:9px 14px;
+  letter-spacing:.09em;
+}
+.hero-promise{
+  font-size:.86rem;
+  padding:8px 14px;
+  letter-spacing:.03em;
+}
+.hero-proof{
+  font-size:.9rem;
+  gap:15px;
+  color:#d0d5d5;
+}
+.hero-proof .check{
+  font-size:1.02rem;
+}
+.hero-social-proof{
+  font-size:.92rem;
+  gap:9px;
+  color:rgba(255,255,255,.82);
+}
+.hero-social-proof .rating{
+  font-size:.96rem;
+  letter-spacing:1px;
+}
+.hero-social-proof .quote{
+  color:rgba(255,255,255,.7);
+  font-size:.9rem;
+}
+.hero-trust{
+  gap:20px;
+}
+.hero-trust li{
+  font-size:.9rem;
+  gap:8px;
+  color:rgba(255,255,255,.88);
+}
+.hero-trust svg{
+  width:18px;
+  height:18px;
+}
+.vehicle-label{
+  font-size:.9rem;
+  color:#b0b8b8;
+}
+.vehicle-tab{
+  font-size:.88rem;
+  min-height:46px;
+  padding:10px 15px;
+}
+.rescue-top strong{
+  font-size:.88rem;
+}
+.status-mini{
+  font-size:.72rem;
+}
+.rescue-number small{
+  font-size:.8rem;
+}
+.rescue-bottom{
+  font-size:.78rem;
+  gap:8px;
+}
+.metric-label{
+  font-size:.92rem;
+  line-height:1.45;
+}
+.metric-label small{
+  font-size:.78rem;
+  font-style:normal;
+  color:#9aa2a2;
+  margin-top:6px;
+}
+.assist-copy p{
+  font-size:1.02rem;
+  line-height:1.65;
+}
+.assist-points li{
+  font-size:.96rem;
+  line-height:1.55;
+}
+.panel-kicker{
+  font-size:.78rem;
+}
+.assist-panel .panel-desc{
+  font-size:.92rem;
+  line-height:1.55;
+}
+.location-option{
+  font-size:.82rem;
+}
+.assist-wa{
+  font-size:.96rem;
+}
+.panel-legal{
+  font-size:.78rem;
+  line-height:1.6;
+  color:#8b9393;
+}
+.section-head p{
+  font-size:1.04rem;
+  line-height:1.65;
+  color:#b8bfbf;
+}
+.filter-btn{
+  font-size:.86rem;
+  padding:10px 14px;
+  min-height:44px;
+}
+.product-type{
+  font-size:.76rem;
+  letter-spacing:.1em;
+}
+.product-card h3{
+  font-size:1.22rem;
+}
+.product-desc{
+  font-size:.94rem;
+  min-height:auto;
+  line-height:1.6;
+  color:#aab2b2;
+}
+.product-badge{
+  font-size:.72rem;
+  padding:6px 10px;
+}
+.old-price{
+  font-size:.88rem;
+}
+.payment-method{
+  font-size:.78rem;
+  color:#bcc4c4;
+}
+.payment-method svg{
+  width:15px;
+  height:15px;
+}
+.payment-note{
+  font-size:.82rem;
+}
+.perk{
+  font-size:.78rem;
+  padding:6px 9px;
+  font-style:normal;
+  color:#b6bebe;
+}
+.product-cta{
+  font-size:.86rem;
+  min-height:48px;
+}
+.catalog-disclaimer{
+  font-size:.82rem;
+  line-height:1.65;
+  color:#adb5b5;
+}
+.step h3{
+  font-size:1.3rem;
+}
+.step p{
+  font-size:.96rem;
+  line-height:1.6;
+}
+.step-tag{
+  font-size:.82rem;
+}
+.coverage-intro p{
+  font-size:1.02rem;
+  line-height:1.6;
+}
+.coverage-search input{
+  font-size:1rem;
+}
+.coverage-results{
+  font-size:.82rem;
+}
+.commune strong{
+  font-size:.92rem;
+}
+.commune span{
+  font-size:.84rem;
+}
+.coverage-foot{
+  font-size:.78rem;
+  line-height:1.6;
+  color:#8b9393;
+}
+.google-rating strong{
+  font-size:.9rem;
+}
+.google-rating small{
+  font-size:.74rem;
+  font-style:normal;
+  color:#9aa2a2;
+}
+.review-person strong{
+  font-size:.92rem;
+}
+.review-person small{
+  font-size:.8rem;
+  font-style:normal;
+  color:#9aa2a2;
+}
+.review .stars{
+  font-size:.86rem;
+}
+.review blockquote{
+  font-size:.96rem;
+  line-height:1.65;
+  color:#dde2e2;
+}
+.faq-intro p{
+  font-size:1.02rem;
+  line-height:1.6;
+}
+.faq-list summary{
+  font-size:.96rem;
+  font-weight:800;
+}
+.faq-answer{
+  font-size:.96rem;
+  line-height:1.65;
+  color:#b8c0c0;
+}
+.final-cta p{
+  font-size:1.02rem;
+  color:#b8c0c0;
+}
+.footer-brand p{
+  font-size:.88rem;
+  line-height:1.6;
+  color:#9aa2a2;
+}
+.footer h4{
+  font-size:.86rem;
+}
+.footer li, .footer a{
+  font-size:.88rem;
+  color:#a4acac;
+}
+.footer-note{
+  font-size:.78rem;
+  line-height:1.6;
+  color:#7f8787;
+}
+@media (max-width:820px){
+  .hero-lead{font-size:1.04rem; line-height:1.55}
+  .hero-proof{font-size:.88rem; gap:11px}
+  .hero-social-proof{font-size:.88rem; gap:7px}
+  .hero-social-proof .rating{font-size:.92rem}
+  .hero-social-proof .quote{font-size:.86rem}
+  .hero-trust li{font-size:.86rem; gap:7px}
+  .vehicle-tab{font-size:.86rem; min-height:48px}
+  .product-desc{font-size:.92rem}
+  .payment-method{font-size:.76rem}
+  .perk{font-size:.76rem}
+  .review blockquote{font-size:.94rem}
+  .faq-answer{font-size:.94rem}
+  .footer-note{font-size:.76rem}
+}
+@media (max-width:560px){
+  .section-head p{font-size:1rem}
+  .hero-lead{font-size:1rem; line-height:1.55}
+  .hero-proof{font-size:.86rem; gap:10px}
+  .hero-social-proof{font-size:.86rem; gap:6px}
+  .hero-social-proof .rating{font-size:.9rem; letter-spacing:.5px}
+  .hero-trust li{font-size:.84rem; gap:7px}
+  .hero-trust svg{width:16px; height:16px}
+  .live-pill{font-size:.76rem; padding:8px 12px}
+  .hero-promise{font-size:.8rem; padding:7px 12px}
+  .vehicle-tab{font-size:.84rem; min-height:48px; padding:9px 6px}
+  .filter-btn{font-size:.82rem; min-height:46px; padding:9px 6px}
+  .product-desc{font-size:.9rem}
+  .product-type{font-size:.74rem}
+  .payment-method{font-size:.74rem; gap:5px}
+  .payment-method svg{width:14px; height:14px}
+  .payment-note{font-size:.8rem}
+  .perk{font-size:.74rem}
+  .metric-label{font-size:.88rem}
+  .metric-label small{font-size:.74rem}
+  .assist-points li{font-size:.92rem}
+  .step p{font-size:.92rem}
+  .step-tag{font-size:.8rem}
+  .commune strong{font-size:.9rem}
+  .commune span{font-size:.82rem}
+  .review blockquote{font-size:.92rem}
+  .review-person small{font-size:.76rem}
+  .faq-answer{font-size:.92rem}
+  .footer li, .footer a{font-size:.86rem}
+  .footer-note{font-size:.74rem}
+  .panel-legal{font-size:.76rem}
+  .coverage-foot{font-size:.76rem}
+  .catalog-disclaimer{font-size:.8rem}
 }
 </style>
 </head>
