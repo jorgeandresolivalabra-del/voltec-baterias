@@ -121,6 +121,12 @@ nav a:hover::after{transform:scaleX(1)}
 .carousel-arrow.prev{left:20px}
 .carousel-arrow.next{right:20px}
 
+/* Logos de marcas en color original: tarjetas claras para mejorar contraste y legibilidad. */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track, .car-logos-track { animation: none !important; }
+  .marquee-logo-container, .marquee-logo, .car-logos-track img { transition: none !important; }
+}
+
 /* ---------- CINTAS MARQUEE (LOGOS DE BATERÍAS) ---------- */
 .marquee-section{background:linear-gradient(90deg,#0a0a0a 0%,#1a1a1a 50%,#0a0a0a 100%);padding:22px 0;overflow:hidden;position:relative}
 .marquee-section::before,.marquee-section::after{content:'';position:absolute;top:0;bottom:0;width:120px;z-index:2;pointer-events:none}
@@ -132,9 +138,10 @@ nav a:hover::after{transform:scaleX(1)}
 .marquee.reverse .marquee-track{animation:marquee-right 40s linear infinite}
 .marquee:hover .marquee-track{animation-play-state:paused}
 
-.marquee-logo-container { display: flex; align-items: center; justify-content: center; height: 45px; width: 140px; }
-.marquee-logo { max-height: 100%; max-width: 100%; object-fit: contain; filter: grayscale(100%) brightness(200%) opacity(0.6); transition: all 0.3s ease; }
-.marquee-logo:hover { filter: grayscale(0%) brightness(100%) opacity(1); transform: scale(1.15); }
+.marquee-logo-container { display: flex; align-items: center; justify-content: center; height: 62px; width: 150px; flex: 0 0 150px; padding: 9px 13px; box-sizing: border-box; background: rgba(255,255,255,.96); border: 1px solid rgba(255,255,255,.75); border-radius: 12px; box-shadow: 0 5px 18px rgba(0,0,0,.16); transition: transform .25s ease, box-shadow .25s ease; }
+.marquee-logo-container:hover { transform: translateY(-3px); box-shadow: 0 9px 24px rgba(0,0,0,.25); }
+.marquee-logo { max-height: 100%; max-width: 100%; width: auto; object-fit: contain; filter: none; opacity: 1; transition: transform .25s ease; }
+.marquee-logo:hover { filter: none; opacity: 1; transform: scale(1.08); }
 .fallback-text { color: #fff; font-weight: 900; font-size: 20px; letter-spacing: 1px; opacity: 0.6; white-space: nowrap; transition: 0.3s; }
 .fallback-text:hover { opacity: 1; color: var(--yellow); }
 
@@ -171,8 +178,8 @@ nav a:hover::after{transform:scaleX(1)}
 .car-logos-marquee {position: relative;width: 100%;overflow: hidden;padding: 20px 0;margin-bottom: 30px;mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);-webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);}
 .car-logos-track {display: flex;align-items: center;gap: 50px;width: max-content;animation: scroll-logos 25s linear infinite;}
 .car-logos-track:hover {animation-play-state: paused;}
-.car-logos-track img {height: 45px;width: auto;object-fit: contain;filter: grayscale(100%) opacity(0.5);transition: all 0.3s ease;cursor: pointer;}
-.car-logos-track img:hover {filter: grayscale(0%) opacity(1);transform: scale(1.15);}
+.car-logos-track img {height: 48px;max-width:140px;width:auto;object-fit:contain;filter:none;opacity:1;transition:all .3s ease;cursor:pointer;background:#fff;padding:8px 12px;border-radius:10px;box-shadow:0 4px 14px rgba(0,0,0,.10);box-sizing:content-box;}
+.car-logos-track img:hover {filter:none;opacity:1;transform:scale(1.08);}
 .bv-cta-wrap {display: flex;align-items: center;gap: 20px;flex-wrap: wrap;}
 .bv-cta-sub {font-size: 13px;color: var(--grey);font-weight: 600;display: flex;align-items: center;gap: 6px;}
 .bv-cta-sub::before {content: '✓';color: #25d366;font-weight: 900;}
@@ -427,7 +434,7 @@ footer p{line-height:1.65;font-size:13.5px}
   .float-cta a span{display:none}
   .float-cta a{padding:14px}
   .logo-img{height:40px}
-  .marquee-logo-container {width: 100px; height: 35px;}
+  .marquee-logo-container {width: 112px; flex-basis:112px; height: 52px; padding:7px 9px; border-radius:9px;}
   .fallback-text {font-size: 14px;}
   .coverage-search {padding: 14px 20px 14px 46px; font-size: 14px;}
   .search-icon {font-size: 16px; left: 16px;}
@@ -447,6 +454,56 @@ footer p{line-height:1.65;font-size:13.5px}
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
   .reveal{opacity:1;transform:none}
 }
+
+
+/* ---------- VOLTIA: pulido visual de cobertura, opiniones y FAQ ---------- */
+header{padding-top:12px;padding-bottom:12px;min-height:82px}
+.logo{gap:14px;min-width:190px}
+.logo-img{height:68px;max-width:230px;object-fit:contain;filter:drop-shadow(0 3px 10px rgba(0,0,0,.35))}
+.footer-logo{height:86px;max-width:260px;object-fit:contain}
+.coverage{padding-top:100px;padding-bottom:100px;background:radial-gradient(ellipse at 15% 15%,rgba(255,205,0,.12),transparent 38%),linear-gradient(135deg,#070707 0%,#151515 55%,#080808 100%)}
+.coverage .title{max-width:850px;margin:0 auto 34px;text-align:center}
+.coverage .title .eyebrow{display:inline-flex;align-items:center;gap:9px;border:1px solid rgba(255,205,0,.38);background:rgba(255,205,0,.09);padding:8px 15px;border-radius:999px;color:var(--yellow);letter-spacing:1.3px}
+.coverage .title h2{font-size:clamp(30px,4vw,48px);line-height:1.08;margin:14px 0 12px}
+.coverage .title p{font-size:16px;line-height:1.75;color:#c6c6c6}
+.coverage-search-wrap{max-width:570px;margin-bottom:34px}
+.coverage-search{min-height:58px;background:rgba(255,255,255,.075);border-color:rgba(255,255,255,.18);box-shadow:0 12px 35px rgba(0,0,0,.22)}
+.commune-grid{max-width:1120px;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px;margin-bottom:28px}
+.commune{min-height:68px;padding:15px 16px;border-radius:15px;background:linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.025));border-color:rgba(255,255,255,.12);font-size:14px;box-shadow:inset 0 1px 0 rgba(255,255,255,.04)}
+.commune .time{font-size:11px;padding:5px 9px;box-shadow:0 3px 12px rgba(255,205,0,.15)}
+.radar-dot{flex:0 0 8px}
+.coverage-photo-strip{position:relative;max-width:1120px;height:260px;margin:30px auto 42px;border-radius:24px;overflow:hidden;border:1px solid rgba(255,205,0,.32);box-shadow:0 24px 55px rgba(0,0,0,.35);isolation:isolate}
+.coverage-photo-strip img{width:100%;height:100%;object-fit:cover;object-position:center 48%;filter:saturate(.9)}
+.coverage-photo-strip::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.84),rgba(0,0,0,.38) 58%,rgba(0,0,0,.08))}
+.coverage-photo-copy{position:absolute;z-index:1;left:clamp(22px,5vw,54px);top:50%;transform:translateY(-50%);max-width:510px;color:#fff}
+.coverage-photo-copy strong{display:block;color:var(--yellow);font-size:12px;letter-spacing:1.6px;text-transform:uppercase;margin-bottom:10px}
+.coverage-photo-copy h3{font-size:clamp(23px,3vw,36px);line-height:1.13;margin-bottom:10px}
+.coverage-photo-copy p{color:#eee;font-size:15px;max-width:420px}
+.map-container{max-width:1120px;border-radius:22px;border:1px solid rgba(255,205,0,.35);box-shadow:0 24px 60px rgba(0,0,0,.4)}
+.map-container iframe{height:380px}
+.reviews{padding:90px 6vw;background:linear-gradient(180deg,#fff 0%,#f7f7f7 100%)}
+.reviews .title{max-width:800px;margin:0 auto 28px;text-align:center}
+.reviews .title h2{font-size:clamp(29px,3.5vw,42px);line-height:1.12;margin-top:12px}
+.reviews .title .eyebrow{display:inline-block;background:#fff7d6;border:1px solid #f1d86e;color:#725a00;padding:7px 12px;border-radius:999px;font-size:11px;font-weight:800;letter-spacing:.7px}
+.rev-score{padding:20px 28px;border-radius:20px;box-shadow:0 15px 38px rgba(0,0,0,.08);gap:18px}
+.google-logo-icon{width:34px;height:34px;object-fit:contain}
+.rev-score .big{font-size:44px}
+.rev-carousel{gap:18px;padding:12px 4px 30px}
+.rev{flex-basis:min(350px,86vw);min-height:245px;padding:26px;border-radius:20px;box-shadow:0 12px 32px rgba(0,0,0,.065);display:flex;flex-direction:column}
+.rev p{font-size:14.5px;flex:1}
+.rev .who{margin-top:8px;padding-top:15px;border-top:1px solid #f0f0f0}
+.rev .avatar{flex:0 0 46px}
+#faq{padding:90px 6vw;background:#fff}
+#faq .title{text-align:center;margin-bottom:32px}
+#faq .title h2{font-size:clamp(29px,3.5vw,42px);margin-top:12px}
+#faq .title .eyebrow{display:inline-block;color:#6b5500;background:#fff7d6;border:1px solid #f1d86e;padding:7px 13px;border-radius:999px;font-size:11px;font-weight:800;letter-spacing:1px}
+.faq-list{max-width:900px}
+.faq{border-color:#e9e9e9;border-radius:16px;box-shadow:0 5px 18px rgba(0,0,0,.025)}
+.faq summary{padding:22px 25px;font-size:15.5px}
+.faq .ans{padding:0 25px 24px;line-height:1.8;color:#555}
+@media(max-width:992px){.commune-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.logo-img{height:60px}.coverage-photo-strip{height:240px}.map-container iframe{height:320px}}
+@media(max-width:640px){header{min-height:70px;padding:8px 5vw}.logo{min-width:0}.logo-img{height:49px;max-width:175px}.coverage{padding:68px 5vw}.coverage .title{margin-bottom:25px}.coverage .title p{font-size:14px}.commune-grid{grid-template-columns:1fr;gap:9px}.commune{min-height:58px}.coverage-photo-strip{height:280px;margin:25px auto 30px}.coverage-photo-strip img{object-position:58% center}.coverage-photo-strip::after{background:linear-gradient(90deg,rgba(0,0,0,.82),rgba(0,0,0,.35))}.coverage-photo-copy{left:22px;right:18px}.coverage-photo-copy p{font-size:14px}.map-container iframe{height:280px}.reviews,#faq{padding:65px 5vw}.rev-score{flex-direction:row;text-align:left;justify-content:center;padding:16px}.rev-score .big{font-size:36px}.rev{padding:23px}.faq summary{padding:18px;font-size:14px}.faq .ans{padding:0 18px 20px;font-size:14px}.footer-logo{height:72px}}
+
 </style>
 </head>
 <body id="inicio">
@@ -976,7 +1033,7 @@ footer p{line-height:1.65;font-size:13.5px}
     <div class="title reveal">
       <span class="eyebrow">Red de Asistencia</span>
       <h2>¿Llegamos a tu comuna?</h2>
-      <p>Desplegamos nuestra flota en toda la Región Metropolitana. Promedio de llegada: 60 minutos.</p>
+      <p>Cobertura referencial en la Región Metropolitana. Los tiempos que aparecen son estimaciones de ejemplo y deben confirmarse según comuna, horario y disponibilidad.</p>
     </div>
     
     <div class="coverage-search-wrap reveal">
@@ -1005,6 +1062,15 @@ footer p{line-height:1.65;font-size:13.5px}
       <div class="no-results" id="noResults">No encontramos esa comuna. <span onclick="document.getElementById('communeSearch').value=''; document.getElementById('communeSearch').dispatchEvent(new Event('input'));">Ver todas</span></div>
     </div>
 
+    <div class="coverage-photo-strip reveal">
+      <img src="./img/instalacion1.jpg" alt="Técnico realizando una instalación de batería automotriz a domicilio" loading="lazy">
+      <div class="coverage-photo-copy">
+        <strong>Asistencia a domicilio</strong>
+        <h3>La solución llega hasta donde estás.</h3>
+        <p>Consulta tu comuna y confirma disponibilidad, tiempo estimado y precio antes de solicitar el servicio.</p>
+      </div>
+    </div>
+
     <div class="map-container reveal">
       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3329.579409586084!2d-70.66926548480093!3d-33.44888998078157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662c5a02128f971%3A0x8b22547c53b14844!2sSantiago%2C%20Regi%C3%B3n%20Metropolitana%2C%20Chile!5e0!3m2!1ses!2scl!4v1700000000000!5m2!1ses!2scl" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
@@ -1024,7 +1090,7 @@ footer p{line-height:1.65;font-size:13.5px}
         <div class="big">4.9</div>
         <div>
           <div class="stars">★★★★★</div>
-          <div class="small">Valoración y cantidad de reseñas de ejemplo</div>
+          <div class="small">Puntuación y reseñas ilustrativas · demo comercial</div>
         </div>
       </div>
     </div>
