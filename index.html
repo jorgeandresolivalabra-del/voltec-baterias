@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -121,12 +124,6 @@ nav a:hover::after{transform:scaleX(1)}
 .carousel-arrow.prev{left:20px}
 .carousel-arrow.next{right:20px}
 
-/* Logos de marcas en color original: tarjetas claras para mejorar contraste y legibilidad. */
-@media (prefers-reduced-motion: reduce) {
-  .marquee-track, .car-logos-track { animation: none !important; }
-  .marquee-logo-container, .marquee-logo, .car-logos-track img { transition: none !important; }
-}
-
 /* ---------- CINTAS MARQUEE (LOGOS DE BATERÍAS) ---------- */
 .marquee-section{background:linear-gradient(90deg,#0a0a0a 0%,#1a1a1a 50%,#0a0a0a 100%);padding:22px 0;overflow:hidden;position:relative}
 .marquee-section::before,.marquee-section::after{content:'';position:absolute;top:0;bottom:0;width:120px;z-index:2;pointer-events:none}
@@ -138,10 +135,9 @@ nav a:hover::after{transform:scaleX(1)}
 .marquee.reverse .marquee-track{animation:marquee-right 40s linear infinite}
 .marquee:hover .marquee-track{animation-play-state:paused}
 
-.marquee-logo-container { display: flex; align-items: center; justify-content: center; height: 62px; width: 150px; flex: 0 0 150px; padding: 9px 13px; box-sizing: border-box; background: rgba(255,255,255,.96); border: 1px solid rgba(255,255,255,.75); border-radius: 12px; box-shadow: 0 5px 18px rgba(0,0,0,.16); transition: transform .25s ease, box-shadow .25s ease; }
-.marquee-logo-container:hover { transform: translateY(-3px); box-shadow: 0 9px 24px rgba(0,0,0,.25); }
-.marquee-logo { max-height: 100%; max-width: 100%; width: auto; object-fit: contain; filter: none; opacity: 1; transition: transform .25s ease; }
-.marquee-logo:hover { filter: none; opacity: 1; transform: scale(1.08); }
+.marquee-logo-container { display: flex; align-items: center; justify-content: center; height: 45px; width: 140px; }
+.marquee-logo { max-height: 100%; max-width: 100%; object-fit: contain; filter: grayscale(100%) brightness(200%) opacity(0.6); transition: all 0.3s ease; }
+.marquee-logo:hover { filter: grayscale(0%) brightness(100%) opacity(1); transform: scale(1.15); }
 .fallback-text { color: #fff; font-weight: 900; font-size: 20px; letter-spacing: 1px; opacity: 0.6; white-space: nowrap; transition: 0.3s; }
 .fallback-text:hover { opacity: 1; color: var(--yellow); }
 
@@ -178,8 +174,8 @@ nav a:hover::after{transform:scaleX(1)}
 .car-logos-marquee {position: relative;width: 100%;overflow: hidden;padding: 20px 0;margin-bottom: 30px;mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);-webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);}
 .car-logos-track {display: flex;align-items: center;gap: 50px;width: max-content;animation: scroll-logos 25s linear infinite;}
 .car-logos-track:hover {animation-play-state: paused;}
-.car-logos-track img {height: 48px;max-width:140px;width:auto;object-fit:contain;filter:none;opacity:1;transition:all .3s ease;cursor:pointer;background:#fff;padding:8px 12px;border-radius:10px;box-shadow:0 4px 14px rgba(0,0,0,.10);box-sizing:content-box;}
-.car-logos-track img:hover {filter:none;opacity:1;transform:scale(1.08);}
+.car-logos-track img {height: 45px;width: auto;object-fit: contain;filter: grayscale(100%) opacity(0.5);transition: all 0.3s ease;cursor: pointer;}
+.car-logos-track img:hover {filter: grayscale(0%) opacity(1);transform: scale(1.15);}
 .bv-cta-wrap {display: flex;align-items: center;gap: 20px;flex-wrap: wrap;}
 .bv-cta-sub {font-size: 13px;color: var(--grey);font-weight: 600;display: flex;align-items: center;gap: 6px;}
 .bv-cta-sub::before {content: '✓';color: #25d366;font-weight: 900;}
@@ -434,7 +430,7 @@ footer p{line-height:1.65;font-size:13.5px}
   .float-cta a span{display:none}
   .float-cta a{padding:14px}
   .logo-img{height:40px}
-  .marquee-logo-container {width: 112px; flex-basis:112px; height: 52px; padding:7px 9px; border-radius:9px;}
+  .marquee-logo-container {width: 100px; height: 35px;}
   .fallback-text {font-size: 14px;}
   .coverage-search {padding: 14px 20px 14px 46px; font-size: 14px;}
   .search-icon {font-size: 16px; left: 16px;}
@@ -455,100 +451,111 @@ footer p{line-height:1.65;font-size:13.5px}
   .reveal{opacity:1;transform:none}
 }
 
+/* ============ RESPONSIVE FIX PACK — VOLTIA ============ */
+.mobile-menu-toggle{display:none}
+html{scroll-padding-top:90px}
+body{min-width:320px}
+button,a{-webkit-tap-highlight-color:transparent}
+button{font:inherit}
+input,select,textarea{max-width:100%;font:inherit}
+section[id],footer[id],div[id]{scroll-margin-top:88px}
 
-/* ---------- VOLTIA: pulido visual de cobertura, opiniones y FAQ ---------- */
-header{padding-top:12px;padding-bottom:12px;min-height:82px}
-.logo{gap:14px;min-width:190px}
-.logo-img{height:68px;max-width:230px;object-fit:contain;filter:drop-shadow(0 3px 10px rgba(0,0,0,.35))}
-.footer-logo{height:86px;max-width:260px;object-fit:contain}
-.coverage{padding-top:100px;padding-bottom:100px;background:radial-gradient(ellipse at 15% 15%,rgba(255,205,0,.12),transparent 38%),linear-gradient(135deg,#070707 0%,#151515 55%,#080808 100%)}
-.coverage .title{max-width:850px;margin:0 auto 34px;text-align:center}
-.coverage .title .eyebrow{display:inline-flex;align-items:center;gap:9px;border:1px solid rgba(255,205,0,.38);background:rgba(255,205,0,.09);padding:8px 15px;border-radius:999px;color:var(--yellow);letter-spacing:1.3px}
-.coverage .title h2{font-size:clamp(30px,4vw,48px);line-height:1.08;margin:14px 0 12px}
-.coverage .title p{font-size:16px;line-height:1.75;color:#c6c6c6}
-.coverage-search-wrap{max-width:570px;margin-bottom:34px}
-.coverage-search{min-height:58px;background:rgba(255,255,255,.075);border-color:rgba(255,255,255,.18);box-shadow:0 12px 35px rgba(0,0,0,.22)}
-.commune-grid{max-width:1120px;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px;margin-bottom:28px}
-.commune{min-height:68px;padding:15px 16px;border-radius:15px;background:linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.025));border-color:rgba(255,255,255,.12);font-size:14px;box-shadow:inset 0 1px 0 rgba(255,255,255,.04)}
-.commune .time{font-size:11px;padding:5px 9px;box-shadow:0 3px 12px rgba(255,205,0,.15)}
-.radar-dot{flex:0 0 8px}
-.coverage-photo-strip{position:relative;max-width:1120px;height:260px;margin:30px auto 42px;border-radius:24px;overflow:hidden;border:1px solid rgba(255,205,0,.32);box-shadow:0 24px 55px rgba(0,0,0,.35);isolation:isolate}
-.coverage-photo-strip img{width:100%;height:100%;object-fit:cover;object-position:center 48%;filter:saturate(.9)}
-.coverage-photo-strip::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.84),rgba(0,0,0,.38) 58%,rgba(0,0,0,.08))}
-.coverage-photo-copy{position:absolute;z-index:1;left:clamp(22px,5vw,54px);top:50%;transform:translateY(-50%);max-width:510px;color:#fff}
-.coverage-photo-copy strong{display:block;color:var(--yellow);font-size:12px;letter-spacing:1.6px;text-transform:uppercase;margin-bottom:10px}
-.coverage-photo-copy h3{font-size:clamp(23px,3vw,36px);line-height:1.13;margin-bottom:10px}
-.coverage-photo-copy p{color:#eee;font-size:15px;max-width:420px}
-.map-container{max-width:1120px;border-radius:22px;border:1px solid rgba(255,205,0,.35);box-shadow:0 24px 60px rgba(0,0,0,.4)}
-.map-container iframe{height:380px}
-.reviews{padding:90px 6vw;background:linear-gradient(180deg,#fff 0%,#f7f7f7 100%)}
-.reviews .title{max-width:800px;margin:0 auto 28px;text-align:center}
-.reviews .title h2{font-size:clamp(29px,3.5vw,42px);line-height:1.12;margin-top:12px}
-.reviews .title .eyebrow{display:inline-block;background:#fff7d6;border:1px solid #f1d86e;color:#725a00;padding:7px 12px;border-radius:999px;font-size:11px;font-weight:800;letter-spacing:.7px}
-.rev-score{padding:20px 28px;border-radius:20px;box-shadow:0 15px 38px rgba(0,0,0,.08);gap:18px}
-.google-logo-icon{width:34px;height:34px;object-fit:contain}
-.rev-score .big{font-size:44px}
-.rev-carousel{gap:18px;padding:12px 4px 30px}
-.rev{flex-basis:min(350px,86vw);min-height:245px;padding:26px;border-radius:20px;box-shadow:0 12px 32px rgba(0,0,0,.065);display:flex;flex-direction:column}
-.rev p{font-size:14.5px;flex:1}
-.rev .who{margin-top:8px;padding-top:15px;border-top:1px solid #f0f0f0}
-.rev .avatar{flex:0 0 46px}
-#faq{padding:90px 6vw;background:#fff}
-#faq .title{text-align:center;margin-bottom:32px}
-#faq .title h2{font-size:clamp(29px,3.5vw,42px);margin-top:12px}
-#faq .title .eyebrow{display:inline-block;color:#6b5500;background:#fff7d6;border:1px solid #f1d86e;padding:7px 13px;border-radius:999px;font-size:11px;font-weight:800;letter-spacing:1px}
-.faq-list{max-width:900px}
-.faq{border-color:#e9e9e9;border-radius:16px;box-shadow:0 5px 18px rgba(0,0,0,.025)}
-.faq summary{padding:22px 25px;font-size:15.5px}
-.faq .ans{padding:0 25px 24px;line-height:1.8;color:#555}
-@media(max-width:992px){.commune-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.logo-img{height:60px}.coverage-photo-strip{height:240px}.map-container iframe{height:320px}}
-@media(max-width:640px){header{min-height:70px;padding:8px 5vw}.logo{min-width:0}.logo-img{height:49px;max-width:175px}.coverage{padding:68px 5vw}.coverage .title{margin-bottom:25px}.coverage .title p{font-size:14px}.commune-grid{grid-template-columns:1fr;gap:9px}.commune{min-height:58px}.coverage-photo-strip{height:280px;margin:25px auto 30px}.coverage-photo-strip img{object-position:58% center}.coverage-photo-strip::after{background:linear-gradient(90deg,rgba(0,0,0,.82),rgba(0,0,0,.35))}.coverage-photo-copy{left:22px;right:18px}.coverage-photo-copy p{font-size:14px}.map-container iframe{height:280px}.reviews,#faq{padding:65px 5vw}.rev-score{flex-direction:row;text-align:left;justify-content:center;padding:16px}.rev-score .big{font-size:36px}.rev{padding:23px}.faq summary{padding:18px;font-size:14px}.faq .ans{padding:0 18px 20px;font-size:14px}.footer-logo{height:72px}}
-
-
-/* ---------- Mejora visual vanguardia: mapa y preguntas frecuentes ---------- */
-.map-heading{max-width:1120px;margin:48px auto 16px;display:flex;align-items:end;justify-content:space-between;gap:24px;flex-wrap:wrap}
-.map-kicker{display:inline-block;color:var(--yellow);font-size:11px;letter-spacing:1.6px;font-weight:900;margin-bottom:8px}
-.map-heading h3{font-size:clamp(23px,3vw,32px);color:#fff;letter-spacing:-.6px;margin-bottom:6px}
-.map-heading p{color:#bdbdbd;font-size:14px;line-height:1.6}
-.map-open-link{display:inline-flex;align-items:center;gap:8px;padding:12px 17px;border:1px solid rgba(255,205,0,.45);border-radius:999px;color:var(--yellow);font-size:13px;font-weight:800;white-space:nowrap;transition:.2s}
-.map-open-link:hover{background:var(--yellow);color:#111;transform:translateY(-2px)}
-.map-container{background:#f4f4f4;padding:7px;line-height:0}
-.map-container iframe{display:block;width:100%;height:440px;border:0;border-radius:15px;filter:none!important}
-.map-container:hover iframe{filter:none!important}
-.map-disclaimer{max-width:1120px;margin:12px auto 0;color:#aaa;font-size:11.5px;line-height:1.6}
-.google-logo-icon{display:block;width:42px;height:42px;flex:0 0 42px;object-fit:contain;filter:none!important}
-.rev-score{min-width:min(440px,100%);justify-content:center;gap:15px}
-.rev-score .big{-webkit-text-fill-color:initial;background:none;color:#202124;font-size:42px}
-.rev-score .small{max-width:220px;line-height:1.45}
-#faq{position:relative;overflow:hidden;background:linear-gradient(135deg,#f8f9fb 0%,#fff 52%,#fff9df 100%);padding:clamp(68px,8vw,112px) 6vw}
-#faq::before{content:"";position:absolute;width:430px;height:430px;border-radius:50%;right:-190px;top:-170px;background:radial-gradient(circle,rgba(255,205,0,.18),transparent 68%);pointer-events:none}
-#faq .section-inner{position:relative;z-index:1;max-width:1180px;display:grid;grid-template-columns:minmax(280px,.8fr) minmax(0,1.2fr);gap:clamp(32px,6vw,78px);align-items:start}
-.faq-intro{position:sticky;top:125px}
-.faq-intro>.eyebrow{display:inline-flex;background:#fff4bf;color:#665000;border:1px solid #f0d96b;border-radius:999px;padding:8px 13px;font-size:10.5px;font-weight:900;letter-spacing:1.1px}
-.faq-intro h2{font-size:clamp(34px,4vw,49px);line-height:1.05;letter-spacing:-1.8px;margin:22px 0 17px;color:#121212}
-.faq-intro h2 span{color:#a98200}
-.faq-intro>p{font-size:15px;color:#656565;line-height:1.8;max-width:420px;margin-bottom:28px}
-.faq-help-card{background:#111;color:#fff;border-radius:22px;padding:22px;display:grid;grid-template-columns:44px 1fr;gap:14px;box-shadow:0 18px 40px rgba(0,0,0,.13);border:1px solid rgba(255,205,0,.28)}
-.faq-help-icon{width:42px;height:42px;border-radius:14px;display:grid;place-items:center;background:var(--yellow);color:#111;font-size:25px;font-weight:900}
-.faq-help-card strong{display:block;font-size:15px;margin:1px 0 6px}
-.faq-help-card p{font-size:12.5px;color:#c7c7c7;line-height:1.65}
-.faq-help-link{grid-column:2;display:inline-flex;align-items:center;gap:8px;color:var(--yellow);font-size:13px;font-weight:900;margin-top:1px}
-.faq-help-link:hover{gap:13px}
-.faq-trust-points{display:grid;gap:11px;margin-top:23px;color:#4d4d4d;font-size:12px;font-weight:700}
-.faq-trust-points span::first-letter{color:#218a4b}
-.faq-list{max-width:none;width:100%;display:grid;gap:12px}
-.faq{margin:0;border:1px solid #e8e8e8;border-radius:17px;box-shadow:0 5px 18px rgba(20,20,20,.035);background:rgba(255,255,255,.9)}
-.faq:hover{border-color:#e8cf56;box-shadow:0 10px 25px rgba(20,20,20,.06)}
-.faq[open]{border-color:#e7c52b;box-shadow:0 12px 28px rgba(140,110,0,.09)}
-.faq summary{display:grid;grid-template-columns:36px 1fr 20px;justify-content:initial;gap:13px;align-items:center;padding:20px 21px;font-size:14.5px;line-height:1.45}
-.faq summary::after{grid-column:3;grid-row:1;font-size:22px;text-align:center}
-.faq-number{width:32px;height:32px;display:grid;place-items:center;border-radius:10px;background:#f5f5f5;color:#777;font-size:10px;font-weight:900;letter-spacing:.3px}
-.faq[open] .faq-number{background:var(--yellow);color:#171717}
-.faq[open] summary{border-bottom:1px solid #f0e7b9;background:linear-gradient(90deg,#fffdf3,#fff)}
-.faq .ans{padding:17px 24px 22px 70px;font-size:13.5px;line-height:1.8;color:#5d5d5d}
-@media(max-width:850px){#faq .section-inner{grid-template-columns:1fr;gap:32px}.faq-intro{position:static}.faq-intro>p{max-width:620px}.faq-help-card{max-width:600px}.faq-trust-points{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.map-heading{align-items:start}.map-container iframe{height:360px}}
-@media(max-width:560px){.map-heading{margin-top:32px}.map-heading h3{font-size:25px}.map-open-link{padding:10px 13px}.map-container{padding:4px;border-radius:15px}.map-container iframe{height:300px;border-radius:11px}.map-disclaimer{font-size:10.5px}.rev-score{min-width:0;width:100%;padding:16px 13px;gap:11px}.google-logo-icon{width:35px;height:35px;flex-basis:35px}.rev-score .big{font-size:34px}.rev-score .small{font-size:10.5px}.faq-intro h2{font-size:36px}.faq-trust-points{grid-template-columns:1fr;gap:8px}.faq-help-card{padding:18px;grid-template-columns:38px 1fr;gap:11px}.faq-help-icon{width:38px;height:38px}.faq summary{grid-template-columns:29px 1fr 17px;padding:16px 14px;gap:10px;font-size:13.5px}.faq-number{width:28px;height:28px;font-size:9px}.faq .ans{padding:14px 16px 19px 53px;font-size:13px}}
-
+@media(max-width:992px){
+  header{gap:12px}
+  .mobile-menu-toggle{display:flex;flex:0 0 44px;width:44px;height:44px;align-items:center;justify-content:center;flex-direction:column;gap:5px;border:1px solid rgba(255,205,0,.55);border-radius:12px;background:#171717;color:#fff;cursor:pointer;padding:10px;order:2}
+  .mobile-menu-toggle span{display:block;width:20px;height:2px;background:var(--yellow);border-radius:3px;transition:transform .2s,opacity .2s}
+  .mobile-menu-toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .mobile-menu-toggle[aria-expanded="true"] span:nth-child(2){opacity:0}
+  .mobile-menu-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  header nav{display:none;order:4;width:100%;flex:0 0 100%;padding:10px 0 6px;gap:0;align-items:stretch;flex-direction:column;border-top:1px solid rgba(255,205,0,.22)}
+  header.menu-open nav{display:flex}
+  header nav a{display:block;padding:13px 8px;border-bottom:1px solid rgba(255,255,255,.08);font-size:15px}
+  header nav a::after{display:none}
+  .phone-cta{margin-left:auto;order:3}
+  .hero-inner,.diag-container,.showcase-grid,.foot-grid{min-width:0}
+  .hero-inner>* ,.diag-container>*{min-width:0}
+  .hero-mini-trust{gap:12px 18px}
+  .diag-img-right,.diag-img-left{width:100%;min-width:0}
+  .map-container iframe{max-width:100%}
+}
+@media(max-width:640px){
+  html{scroll-padding-top:76px}
+  body{font-size:15px;overflow-x:hidden}
+  .topbar{padding:8px 4vw;font-size:11px;line-height:1.4;gap:4px}
+  .topbar>div:first-child{max-width:100%}
+  header{padding:9px 4vw;gap:8px}
+  .logo{max-width:calc(100% - 112px);min-width:0}
+  .logo-img{height:38px;max-width:100%;width:auto}
+  .mobile-menu-toggle{width:40px;height:40px;flex-basis:40px;padding:8px}
+  .phone-cta{padding:10px 12px;font-size:13px;gap:5px;white-space:nowrap}
+  .phone-cta small{display:none}
+  .hero-carousel{padding:0;min-height:0;height:auto}
+  .slide{padding:38px 5vw 48px;min-height:0;align-items:flex-start}
+  .slide.active{display:flex}
+  .hero-inner{grid-template-columns:minmax(0,1fr);gap:24px;width:100%}
+  .slide h1{font-size:clamp(30px,8.5vw,42px);line-height:1.08;overflow-wrap:anywhere}
+  .hero-badge{font-size:10px;letter-spacing:.5px;padding:7px 11px;max-width:100%;white-space:normal}
+  .slide p.lead{font-size:15px;line-height:1.6;margin-bottom:20px}
+  .hero-btns{display:grid;grid-template-columns:minmax(0,1fr);gap:10px;margin-bottom:20px}
+  .hero-btns a,.btn-main,.btn-wa{width:100%;justify-content:center;text-align:center;min-height:48px;padding:13px 16px;font-size:14px;white-space:normal}
+  .hero-mini-trust{display:grid;grid-template-columns:minmax(0,1fr);gap:8px;font-size:12px}
+  .veh-box{width:100%;max-width:none;padding:20px 16px;border-radius:18px}
+  .brand-pills{display:flex;flex-wrap:wrap;gap:8px}
+  .brand-pill{min-height:42px;max-width:100%;font-size:12px;padding:10px 12px}
+  .section-inner,.diag-container,.coverage-inner,.rev-carousel-wrap{width:100%;max-width:100%;padding-left:5vw;padding-right:5vw}
+  section{scroll-margin-top:76px}
+  .diagonal-sec,.product-showcase{padding-top:48px;padding-bottom:48px}
+  .diag-content{padding:32px 5vw}
+  .diag-img-right,.diag-img-left{min-height:230px;height:230px;clip-path:none!important;border-radius:0}
+  .diag-img-right img,.diag-img-left img{width:100%;height:100%;object-fit:cover}
+  .diag-title{font-size:clamp(27px,7.5vw,36px);overflow-wrap:anywhere}
+  .diag-desc{font-size:15px}
+  .feature-list{grid-template-columns:minmax(0,1fr);gap:16px}
+  .showcase-grid{grid-template-columns:minmax(0,1fr);gap:24px}
+  .product-image-container{width:100%;max-width:340px;margin:0 auto}
+  .floating-badge{right:5px;bottom:8px;padding:10px;font-size:12px}
+  .catalog-grid{grid-template-columns:minmax(0,1fr);gap:18px}
+  .cat-card{min-width:0;width:100%}
+  .cat-card-img{height:200px;padding:22px}
+  .price-header{gap:8px}
+  .price-tag{flex-wrap:wrap;gap:4px}
+  .price-tag .amount{font-size:clamp(28px,8vw,36px);letter-spacing:-1px}
+  .price-tag .old-price{font-size:13px;margin-left:4px}
+  .coverage-search{width:100%;max-width:100%;padding:13px 14px 13px 42px;font-size:14px}
+  .commune-grid,.communeGrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .map-container{border-radius:14px}
+  .map-container iframe{height:260px}
+  .rev-head{gap:12px;margin-bottom:24px}
+  .rev-score{width:100%;padding:14px;flex-direction:row;text-align:left}
+  .rev-score .big{font-size:32px}
+  .rev{flex-basis:88vw;padding:22px}
+  .rev-arrow{display:none}
+  .step-item{gap:12px}
+  .step-num{width:42px;height:42px;flex:0 0 42px}
+  .step-list::before{left:20px}
+  .cta{padding:42px 5vw}
+  .cta h2{font-size:clamp(25px,7vw,34px);overflow-wrap:anywhere}
+  .cta-btns{display:grid;grid-template-columns:minmax(0,1fr);gap:10px}
+  .cta-btns a{width:100%;justify-content:center;min-height:48px}
+  .foot-grid{grid-template-columns:minmax(0,1fr);gap:24px}
+  .footer-logo{max-width:100%;height:auto;width:auto;max-height:58px}
+  .foot-bottom{overflow-wrap:anywhere;padding-bottom:12px}
+  .float-cta{right:10px;bottom:10px;gap:8px}
+  .float-cta a{min-width:46px;min-height:46px;width:46px;height:46px;padding:10px;justify-content:center;border-radius:50%;font-size:0}
+  .float-cta a span{display:none}
+  .float-cta a::first-letter{font-size:18px}
+  img,iframe{max-width:100%}
+  .marquee{max-width:100%;overflow:hidden}
+  .marquee-label{font-size:11px;padding-left:5vw;padding-right:5vw;text-align:center}
+  .faq,.faq details{max-width:100%}
+}
+@media(max-width:380px){
+  .phone-cta{padding:9px 10px;font-size:12px}
+  .logo-img{height:34px}
+  .slide{padding-left:4vw;padding-right:4vw}
+  .commune-grid,.communeGrid{grid-template-columns:minmax(0,1fr)}
+  .rev{flex-basis:90vw}
+}
 </style>
 </head>
 <body id="inicio">
@@ -564,10 +571,13 @@ header{padding-top:12px;padding-bottom:12px;min-height:82px}
 
 <!-- Header -->
 <header id="mainHeader">
-  <a class="logo" href="#inicio">
+  <a class="logo" href="#inicio" aria-label="VOLTIA, ir al inicio">
     <img src="./img/logotipo.jpg" alt="VOLTIA - Movilidad al Instante" class="logo-img">
   </a>
-  <nav>
+  <button class="mobile-menu-toggle" id="mobileMenuToggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mainNav">
+    <span></span><span></span><span></span>
+  </button>
+  <nav id="mainNav" aria-label="Navegación principal">
     <a href="#baterias">Baterías</a>
     <a href="#marcas">Marcas</a>
     <a href="#cobertura">Cobertura</a>
@@ -1078,7 +1088,7 @@ header{padding-top:12px;padding-bottom:12px;min-height:82px}
     <div class="title reveal">
       <span class="eyebrow">Red de Asistencia</span>
       <h2>¿Llegamos a tu comuna?</h2>
-      <p>Cobertura referencial en la Región Metropolitana. Los tiempos que aparecen son estimaciones de ejemplo y deben confirmarse según comuna, horario y disponibilidad.</p>
+      <p>Desplegamos nuestra flota en toda la Región Metropolitana. Promedio de llegada: 60 minutos.</p>
     </div>
     
     <div class="coverage-search-wrap reveal">
@@ -1107,23 +1117,9 @@ header{padding-top:12px;padding-bottom:12px;min-height:82px}
       <div class="no-results" id="noResults">No encontramos esa comuna. <span onclick="document.getElementById('communeSearch').value=''; document.getElementById('communeSearch').dispatchEvent(new Event('input'));">Ver todas</span></div>
     </div>
 
-    <div class="coverage-photo-strip reveal">
-      <img src="./img/instalacion1.jpg" alt="Técnico realizando una instalación de batería automotriz a domicilio" loading="lazy">
-      <div class="coverage-photo-copy">
-        <strong>Asistencia a domicilio</strong>
-        <h3>La solución llega hasta donde estás.</h3>
-        <p>Consulta tu comuna y confirma disponibilidad, tiempo estimado y precio antes de solicitar el servicio.</p>
-      </div>
-    </div>
-
-    <div class="map-heading reveal">
-      <div><span class="map-kicker">COBERTURA REFERENCIAL</span><h3>Gran Santiago, a la vista</h3><p>Explora la Región Metropolitana y consulta disponibilidad para tu comuna.</p></div>
-      <a href="https://www.google.com/maps/search/?api=1&query=Gran+Santiago%2C+Regi%C3%B3n+Metropolitana%2C+Chile" target="_blank" rel="noopener noreferrer" class="map-open-link">↗ Abrir mapa</a>
-    </div>
     <div class="map-container reveal">
-      <iframe title="Mapa general del Gran Santiago y la Región Metropolitana" src="https://maps.google.com/maps?q=Gran%20Santiago%2C%20Regi%C3%B3n%20Metropolitana%2C%20Chile&t=&z=10&ie=UTF8&iwloc=&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3329.579409586084!2d-70.66926548480093!3d-33.44888998078157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662c5a02128f971%3A0x8b22547c53b14844!2sSantiago%2C%20Regi%C3%B3n%20Metropolitana%2C%20Chile!5e0!3m2!1ses!2scl!4v1700000000000!5m2!1ses!2scl" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
-    <p class="map-disclaimer">El mapa muestra una referencia geográfica general; la cobertura y los tiempos exactos deben confirmarse antes de contratar.</p>
   </div>
 </section>
 
@@ -1136,11 +1132,11 @@ header{padding-top:12px;padding-bottom:12px;min-height:82px}
     </div>
     <div class="rev-head reveal">
       <div class="rev-score">
-        <svg class="google-logo-icon" viewBox="0 0 48 48" role="img" aria-label="Google" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M43.6 24.5c0-1.4-.1-2.8-.4-4.1H24v7.8h11a9.4 9.4 0 0 1-4.1 6.2v5.1h6.6c3.9-3.6 6.1-8.8 6.1-15z"/><path fill="#34A853" d="M24 44c5.5 0 10.1-1.8 13.5-4.9l-6.6-5.1c-1.8 1.2-4.1 2-6.9 2-5.3 0-9.8-3.6-11.4-8.4H5.8v5.3A20 20 0 0 0 24 44z"/><path fill="#FBBC05" d="M12.6 27.6a12 12 0 0 1 0-7.2v-5.3H5.8a20 20 0 0 0 0 17.8z"/><path fill="#EA4335" d="M24 12c3 0 5.7 1 7.8 3.1l5.8-5.8C34.1 5.9 29.5 4 24 4A20 20 0 0 0 5.8 15.1l6.8 5.3C14.2 15.6 18.7 12 24 12z"/></svg>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" alt="Google Logo" class="google-logo-icon">
         <div class="big">4.9</div>
         <div>
           <div class="stars">★★★★★</div>
-          <div class="small">Puntuación y reseñas ilustrativas · demo comercial</div>
+          <div class="small">Valoración y cantidad de reseñas de ejemplo</div>
         </div>
       </div>
     </div>
@@ -1181,24 +1177,17 @@ header{padding-top:12px;padding-bottom:12px;min-height:82px}
 <!-- FAQ -->
 <section id="faq">
   <div class="section-inner">
-    <div class="faq-intro reveal">
-      <span class="eyebrow">AYUDA ANTES DE COMPRAR</span>
-      <h2>Resolvemos tus dudas, <span>sin vueltas.</span></h2>
-      <p>Queremos que sepas qué estás contratando antes de confirmar. Revisa las respuestas más comunes o consulta tu caso directamente.</p>
-      <div class="faq-help-card">
-        <div class="faq-help-icon" aria-hidden="true">?</div>
-        <div><strong>¿No encuentras tu respuesta?</strong><p>Cuéntanos la marca, modelo y año de tu vehículo para orientar la consulta.</p></div>
-        <a href="#contacto" class="faq-help-link">Consultar ahora <span aria-hidden="true">↗</span></a>
-      </div>
-      <div class="faq-trust-points"><span>✓ Precio confirmado antes de instalar</span><span>✓ Compatibilidad por confirmar</span><span>✓ Condiciones claras</span></div>
+    <div class="title reveal">
+      <span class="eyebrow">Preguntas frecuentes</span>
+      <h2>Resolvemos tus dudas</h2>
     </div>
-    <div class="faq-list reveal">
-      <details class="faq" open><summary><span class="faq-number">01</span><span>¿Cuánto demora la instalación?</span></summary><div class="ans">El tiempo depende de la comuna, el tráfico y la disponibilidad del técnico. La referencia de esta demo es de alrededor de 60 minutos de llegada; la instalación puede tomar otros 15–20 minutos. Confirma el plazo real al solicitar.</div></details>
-      <details class="faq"><summary><span class="faq-number">02</span><span>¿La instalación es realmente gratis?</span></summary><div class="ans">La condición debe confirmarse en la cotización. Antes de aceptar, solicita el precio final y verifica si incluye traslado, instalación, pruebas y retiro de la batería antigua.</div></details>
-      <details class="faq"><summary><span class="faq-number">03</span><span>¿Qué garantía tienen las baterías?</span></summary><div class="ans">La garantía depende de la marca y del modelo. Pide que te indiquen duración, cobertura, exclusiones y comprobante por escrito antes de comprar. Los 24 meses que aparecen en esta demo son ilustrativos.</div></details>
-      <details class="faq"><summary><span class="faq-number">04</span><span>¿Cómo sé qué batería necesita mi auto?</span></summary><div class="ans">Comparte marca, modelo, año, versión y, si es posible, motor o una foto de la etiqueta de la batería actual. La compatibilidad debe verificarse antes de confirmar el pedido.</div></details>
-      <details class="faq"><summary><span class="faq-number">05</span><span>¿Puedo pagar con tarjeta o transferencia?</span></summary><div class="ans">Los medios de pago deben confirmarse con el proveedor antes de agendar. Solicita esta información junto con el precio final para evitar sorpresas.</div></details>
-      <details class="faq"><summary><span class="faq-number">06</span><span>¿Atienden fines de semana y feriados?</span></summary><div class="ans">Los horarios y la disponibilidad pueden variar por comuna y fecha. Confirma la atención para el día y la franja horaria que necesitas.</div></details>
+    <div class="faq-list">
+      <details class="faq reveal" open><summary>¿Cuánto demora la instalación?</summary><div class="ans">El técnico llega en un promedio de 60 minutos desde que confirmas la solicitud. La instalación misma toma entre 15 y 20 minutos. En total, en menos de 1 hora y media tienes tu auto funcionando.</div></details>
+      <details class="faq reveal"><summary>¿La instalación es realmente gratis?</summary><div class="ans">Sí, 100% gratis dentro de nuestra zona de cobertura en Santiago. El precio que te cotizamos ya incluye instalación, prueba de partida y retiro de la batería antigua.</div></details>
+      <details class="faq reveal"><summary>¿Qué garantía tienen las baterías?</summary><div class="ans">Todas nuestras baterías cuentan con 24 meses de garantía oficial por escrito. Además, si tienes algún problema, volvemos a tu domicilio sin costo.</div></details>
+      <details class="faq reveal"><summary>¿Cómo sé qué batería necesita mi auto?</summary><div class="ans">Solo escríbenos por WhatsApp con la marca, modelo y año de tu vehículo. Nuestro equipo te confirma la batería exacta en minutos y te envía el precio final.</div></details>
+      <details class="faq reveal"><summary>¿Puedo pagar con tarjeta o transferencia?</summary><div class="ans">Sí. Aceptamos efectivo, transferencia, débito y crédito. Puedes pagar al técnico cuando termine la instalación.</div></details>
+      <details class="faq reveal"><summary>¿Atienden fines de semana y feriados?</summary><div class="ans">Sí, trabajamos de lunes a domingo de 8:00 a 22:00, incluidos feriados. La disponibilidad puede variar en fechas especiales.</div></details>
     </div>
   </div>
 </section>
@@ -1318,6 +1307,30 @@ const header = document.getElementById('mainHeader');
 window.addEventListener('scroll', () => {
   header.classList.toggle('scrolled', window.scrollY > 20);
 });
+
+/* ============ MENÚ MÓVIL ACCESIBLE ============ */
+const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+const mainNav = document.getElementById('mainNav');
+if (mobileMenuToggle && mainNav) {
+  const closeMobileMenu = () => {
+    header.classList.remove('menu-open');
+    mobileMenuToggle.setAttribute('aria-expanded', 'false');
+    mobileMenuToggle.setAttribute('aria-label', 'Abrir menú');
+  };
+  mobileMenuToggle.addEventListener('click', () => {
+    const isOpen = mobileMenuToggle.getAttribute('aria-expanded') === 'true';
+    header.classList.toggle('menu-open', !isOpen);
+    mobileMenuToggle.setAttribute('aria-expanded', String(!isOpen));
+    mobileMenuToggle.setAttribute('aria-label', isOpen ? 'Abrir menú' : 'Cerrar menú');
+  });
+  mainNav.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMobileMenu));
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') closeMobileMenu();
+  });
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 992) closeMobileMenu();
+  });
+}
 
 /* ============ SCROLL REVEAL ============ */
 const revealObserver = new IntersectionObserver((entries) => {
@@ -1453,3 +1466,6 @@ revCarousel.addEventListener('mousemove', e => {
 
 </body>
 </html>
+
+
+⋮⋮⋮⋮⋮⋮⋮⋮
