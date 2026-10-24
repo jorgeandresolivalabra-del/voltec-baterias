@@ -1,1 +1,0 @@
-# voltec-baterias
