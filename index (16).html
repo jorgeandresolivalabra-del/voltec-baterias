@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#06182c">
+  <meta name="description" content="Baterías de auto a domicilio en Santiago y comunas cercanas. Consulta compatibilidad, precio e instalación antes de coordinar.">
+  <title>VOLTIA | Baterías de auto a domicilio en Santiago</title>
+  <style>
+    :root {
+      --navy: #031426;
+      --navy-2: #061b31;
+      --navy-3: #0b2944;
+      --yellow: #ffe000;
+      --green: #00c96b;
+      --blue: #159fe8;
+      --white: #fff;
+      --ink: #08234a;
+      --muted: #52647a;
+      --pale: #f3f7fb;
+      --line: rgba(255,255,255,.15);
+      --radius: 16px;
+      --shadow: 0 12px 35px rgba(8, 31, 59, .10);
+      --max: 1240px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: #fff;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    button { font: inherit; }
+    img { display: block; max-width: 100%; }
+    .container { width: min(var(--max), calc(100% - 48px)); margin-inline: auto; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 9px; font-size: .78rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+    .eyebrow::before { content: ""; width: 34px; height: 4px; background: var(--yellow); border-radius: 4px; }
+    .section-title { margin: 12px 0 8px; font-size: clamp(2rem, 3.5vw, 3rem); line-height: 1.02; letter-spacing: -.045em; font-weight: 900; }
+    .section-lead { max-width: 620px; margin: 0; font-size: 1.02rem; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 11px;
+      min-height: 52px; padding: 13px 22px; border: 2px solid transparent; border-radius: 999px;
+      text-decoration: none; font-weight: 800; line-height: 1.1; transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+      cursor: pointer;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn:focus-visible, .faq-question:focus-visible, a:focus-visible { outline: 3px solid var(--yellow); outline-offset: 4px; }
+    .btn-green { color: #fff; background: var(--green); box-shadow: 0 8px 24px rgba(0,201,107,.22); }
+    .btn-green:hover { background: #00b95f; box-shadow: 0 12px 28px rgba(0,201,107,.3); }
+    .btn-outline { color: #fff; border-color: var(--yellow); background: rgba(2,17,32,.46); }
+    .btn-outline:hover { background: rgba(255,224,0,.12); }
+    .btn svg { width: 23px; height: 23px; flex: 0 0 auto; }
+    .icon { width: 28px; height: 28px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+    /* HERO */
+    .hero {
+      position: relative; isolation: isolate; overflow: hidden; color: #fff;
+      min-height: 590px; background: var(--navy);
+      display: flex; align-items: stretch;
+    }
+    .hero-photo {
+      position: absolute; z-index: -2; inset: 0 0 0 23%;
+      width: 77%; height: 100%; object-fit: cover; object-position: center 43%;
+    }
+    .hero::before {
+      content: ""; position: absolute; z-index: -1; inset: 0;
+      background:
+        linear-gradient(90deg, #031426 0%, rgba(3,20,38,.98) 20%, rgba(3,20,38,.83) 38%, rgba(3,20,38,.18) 68%, rgba(3,20,38,.08) 100%),
+        linear-gradient(0deg, rgba(3,20,38,.9) 0%, transparent 25%, transparent 75%, rgba(3,20,38,.12) 100%);
+    }
+    .hero-inner { position: relative; width: 100%; display: flex; flex-direction: column; min-height: 590px; padding: 26px clamp(28px, 4.6vw, 64px) 30px; }
+    .topbar { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; }
+    .brand { display: inline-flex; align-items: center; gap: 12px; color: #fff; text-decoration: none; }
+    .brand-bolt { width: 45px; height: 66px; color: var(--yellow); flex: 0 0 auto; }
+    .brand-name { display: block; font-size: clamp(2rem, 4vw, 3.1rem); line-height: .9; letter-spacing: -.055em; font-weight: 950; }
+    .brand-tag { display: block; margin-top: 7px; font-size: .82rem; line-height: 1; font-weight: 750; letter-spacing: .06em; }
+    .location { display: flex; align-items: center; gap: 7px; padding-top: 9px; font-size: .82rem; font-weight: 650; text-shadow: 0 2px 10px #06182c; }
+    .location svg { width: 18px; height: 18px; fill: #fff; }
+    .hero-copy { width: min(465px, 46%); margin-top: 28px; }
+    .hero h1 { margin: 0 0 13px; font-size: clamp(2.8rem, 5.2vw, 4.6rem); line-height: .91; letter-spacing: -.065em; font-weight: 950; }
+    .hero h1 span { color: var(--yellow); display: block; }
+    .hero-subtitle { margin: 0; max-width: 390px; font-size: clamp(1.3rem, 2.3vw, 1.8rem); line-height: 1.12; font-weight: 850; letter-spacing: -.035em; }
+    .hero-benefits { display: flex; flex-wrap: wrap; gap: 18px; margin: 23px 0 24px; }
+    .hero-benefit { display: flex; align-items: center; gap: 8px; max-width: 125px; font-size: .8rem; line-height: 1.22; font-weight: 650; }
+    .hero-benefit .icon { width: 31px; height: 31px; color: var(--yellow); flex-shrink: 0; }
+    .hero-actions { display: flex; flex-direction: column; gap: 10px; width: min(100%, 410px); }
+    .hero-actions .btn { min-height: 58px; font-size: 1rem; }
+    .hero-actions .btn-green { justify-content: space-between; padding-inline: 23px; }
+    .hero-actions .btn-outline { justify-content: center; }
+    .hero-product {
+      position: absolute; right: 2%; bottom: 85px; width: clamp(205px, 25vw, 310px);
+      filter: drop-shadow(0 20px 22px rgba(0,0,0,.5)); transform: perspective(900px) rotateY(-5deg);
+    }
+    .product-label {
+      position: absolute; right: 4%; bottom: 48px; color: #07192b; background: var(--yellow);
+      padding: 8px 24px; transform: rotate(-3deg); font-size: clamp(1rem, 1.7vw, 1.45rem);
+      line-height: 1.03; font-weight: 950; letter-spacing: -.04em; box-shadow: 0 5px 0 rgba(0,0,0,.12);
+    }
+    .vehicle-types { position: absolute; right: 2%; bottom: 12px; display: flex; gap: 20px; color: #fff; font-size: .72rem; font-weight: 650; }
+    .vehicle-types span { display: flex; align-items: center; gap: 6px; }
+    .vehicle-types svg { width: 27px; height: 27px; }
+
+    /* BENEFITS */
+    .benefits { padding: 30px 0 32px; background: linear-gradient(110deg, #fff, #f1f5f9); }
+    .benefits-grid { display: grid; grid-template-columns: 1.85fr repeat(3, 1fr); gap: 17px; align-items: stretch; }
+    .benefits-intro { padding: 8px 12px 0 0; }
+    .benefits-intro .section-title { font-size: clamp(1.8rem, 3vw, 2.5rem); }
+    .benefits-intro h3 { margin: 0 0 12px; font-size: clamp(1.1rem, 1.8vw, 1.4rem); line-height: 1.2; letter-spacing: -.035em; }
+    .benefits-intro p { margin: 0; max-width: 390px; }
+    .benefit-card { padding: 19px 18px 17px; background: rgba(255,255,255,.85); border: 1px solid #e8eef5; border-radius: 15px; box-shadow: 0 5px 18px rgba(14,44,77,.04); }
+    .benefit-icon { display: grid; place-items: center; width: 48px; height: 48px; border-radius: 50%; color: #fff; margin-bottom: 10px; }
+    .benefit-icon.green { background: #06c66a; }
+    .benefit-icon.blue { background: #168cf0; }
+    .benefit-icon.purple { background: #8760f4; }
+    .benefit-icon svg { width: 30px; height: 30px; }
+    .benefit-card h3 { margin: 0 0 7px; font-size: 1rem; line-height: 1.12; letter-spacing: -.03em; }
+    .benefit-card p { margin: 0; font-size: .79rem; line-height: 1.42; }
+
+    /* PROCESS */
+    .process { padding: 31px 0 34px; background: linear-gradient(115deg, #031426, #061e36); color: #fff; }
+    .process-grid { display: grid; grid-template-columns: 1.5fr repeat(3, 1fr); gap: 20px; align-items: stretch; }
+    .process-intro { padding: 3px 8px 0 4px; }
+    .process-intro .section-title { font-size: clamp(2rem, 3.2vw, 2.7rem); }
+    .process-intro h3 { margin: 0 0 12px; font-size: 1.25rem; line-height: 1.2; }
+    .process-intro p { max-width: 330px; margin: 0; color: #e0e8f1; font-size: .9rem; }
+    .handwritten { margin: 27px 0 0 22px; color: var(--yellow); font-size: 1.5rem; font-style: italic; font-weight: 850; transform: rotate(-6deg); }
+    .handwritten::after { content: ""; display: block; width: 120px; height: 10px; margin: 3px 0 0 3px; border-top: 3px solid #fff; border-radius: 50%; transform: rotate(-8deg); }
+    .step-card { position: relative; min-width: 0; padding: 7px; border: 1px solid #008bdf; border-radius: 14px; background: rgba(3,25,46,.75); }
+    .step-image-wrap { position: relative; overflow: hidden; border-radius: 9px; aspect-ratio: 1.5 / 1; background: #102d49; }
+    .step-image { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
+    .step-card:hover .step-image { transform: scale(1.04); }
+    .step-number { position: absolute; z-index: 2; top: -2px; left: -2px; display: grid; place-items: center; width: 43px; height: 43px; border-radius: 50%; color: #07192b; background: var(--yellow); font-size: 1.5rem; font-weight: 950; box-shadow: 0 4px 10px rgba(0,0,0,.22); }
+    .step-card h3 { margin: 11px 4px 6px; font-size: 1rem; line-height: 1.12; letter-spacing: -.025em; }
+    .step-card p { margin: 0 4px 4px; color: #e2eaf3; font-size: .78rem; line-height: 1.4; }
+    .step-arrow { position: absolute; z-index: 3; top: 36%; right: -21px; display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; color: #06182c; background: var(--yellow); font-size: 1.35rem; font-weight: 900; box-shadow: 0 3px 10px rgba(0,0,0,.2); }
+
+    /* FAQ */
+    .faq-section { color: #fff; background: #031426; border-top: 1px solid rgba(255,255,255,.45); }
+    .faq-grid { display: grid; grid-template-columns: .95fr 1.1fr 1fr; min-height: 250px; }
+    .faq-photo { min-height: 250px; overflow: hidden; }
+    .faq-photo img { width: 100%; height: 100%; min-height: 250px; object-fit: cover; }
+    .faq-copy { padding: 27px 30px; align-self: center; }
+    .faq-copy .section-title { font-size: clamp(1.6rem, 2.6vw, 2.15rem); }
+    .faq-copy p { margin: 0 0 18px; color: #dbe5f0; font-size: .83rem; }
+    .faq-link { display: inline-flex; align-items: center; gap: 20px; padding: 9px 16px; color: #fff; background: transparent; border: 1px solid var(--yellow); border-radius: 999px; text-decoration: none; font-weight: 750; font-size: .82rem; }
+    .faq-list { align-self: center; padding: 20px 0 20px 5px; }
+    .faq-item { border: 1px solid #183954; border-bottom: 0; background: linear-gradient(90deg, #0b2944, #071e34); }
+    .faq-item:first-child { border-radius: 10px 10px 0 0; }
+    .faq-item:last-child { border-bottom: 1px solid #183954; border-radius: 0 0 10px 10px; }
+    .faq-question { display: flex; justify-content: space-between; align-items: center; gap: 14px; width: 100%; padding: 12px 15px; border: 0; color: #fff; background: transparent; text-align: left; font-size: .82rem; font-weight: 750; cursor: pointer; }
+    .faq-question svg { width: 18px; height: 18px; flex-shrink: 0; transition: transform .2s ease; }
+    .faq-question[aria-expanded="true"] svg { transform: rotate(180deg); }
+    .faq-answer { padding: 0 15px 13px; color: #d9e6f2; font-size: .8rem; line-height: 1.5; }
+    .faq-answer[hidden] { display: none; }
+
+    /* FINAL CTA */
+    .final-cta { position: relative; isolation: isolate; overflow: hidden; min-height: 230px; display: flex; align-items: center; color: #fff; background: var(--navy); }
+    .final-cta > img { position: absolute; z-index: -2; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 56%; }
+    .final-cta::before { content: ""; position: absolute; z-index: -1; inset: 0; background: linear-gradient(90deg, rgba(3,20,38,.98) 0%, rgba(3,20,38,.9) 28%, rgba(3,20,38,.28) 68%, rgba(3,20,38,.12)); }
+    .final-copy { padding: 26px 0; max-width: 600px; }
+    .final-copy .eyebrow { font-size: .76rem; }
+    .final-copy h2 { margin: 7px 0 3px; font-size: clamp(1.8rem, 3.4vw, 2.65rem); line-height: 1.02; letter-spacing: -.045em; font-weight: 950; }
+    .final-copy p { margin: 0 0 15px; }
+    .final-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+    .final-actions .btn { min-height: 48px; font-size: .86rem; }
+
+    /* FOOTER */
+    footer { color: #fff; background: #021326; border-top: 1px solid #31506a; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 22px; min-height: 90px; padding-block: 18px; }
+    .brand-footer .brand-bolt { width: 30px; height: 44px; }
+    .brand-footer .brand-name { font-size: 1.9rem; }
+    .brand-footer .brand-tag { font-size: .52rem; margin-top: 4px; }
+    .footer-points { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 0; }
+    .footer-point { display: flex; align-items: center; gap: 9px; padding: 5px 14px; font-size: .72rem; border-left: 1px solid rgba(255,255,255,.15); }
+    .footer-point svg { width: 23px; height: 23px; color: #fff; flex-shrink: 0; }
+    .footer-point:last-child svg { color: var(--yellow); }
+    .copyright { padding: 0 0 15px; color: #92a7bb; text-align: center; font-size: .68rem; }
+
+    @media (min-width: 1450px) { .hero-inner { padding-top: 32px; } }
+    @media (max-width: 980px) {
+      .hero, .hero-inner { min-height: 560px; }
+      .hero-copy { width: min(430px, 55%); }
+      .hero-product { right: 0; bottom: 82px; width: 230px; }
+      .product-label { right: 1%; bottom: 48px; }
+      .vehicle-types { right: 0; gap: 10px; }
+      .benefits-grid { grid-template-columns: repeat(3, 1fr); }
+      .benefits-intro { grid-column: 1 / -1; padding-bottom: 4px; }
+      .benefits-intro p { max-width: 650px; }
+      .process-grid { grid-template-columns: repeat(3, 1fr); }
+      .process-intro { grid-column: 1 / -1; }
+      .process-intro p { max-width: 600px; }
+      .handwritten { display: none; }
+      .faq-grid { grid-template-columns: .8fr 1.1fr; }
+      .faq-photo { min-height: 210px; }
+      .faq-photo img { min-height: 210px; }
+      .faq-copy { grid-column: 1 / -1; padding: 24px 0 0; }
+      .faq-list { padding: 15px 0 25px; }
+      .footer-inner { align-items: flex-start; }
+      .footer-points { gap: 7px 0; }
+    }
+    @media (max-width: 640px) {
+      .container { width: min(100% - 32px, var(--max)); }
+      .hero { min-height: 760px; }
+      .hero-inner { min-height: 760px; padding: 19px 20px 24px; }
+      .hero-photo { inset: 210px 0 auto 0; width: 100%; height: 360px; object-position: 57% center; }
+      .hero::before { background: linear-gradient(180deg, #031426 0%, #031426 22%, rgba(3,20,38,.72) 45%, rgba(3,20,38,.28) 63%, #031426 91%, #031426 100%); }
+      .topbar { align-items: center; }
+      .brand { gap: 8px; }
+      .brand-bolt { width: 31px; height: 47px; }
+      .brand-name { font-size: 2rem; }
+      .brand-tag { font-size: .55rem; letter-spacing: .04em; margin-top: 5px; }
+      .location { max-width: 118px; padding: 0; font-size: .67rem; line-height: 1.25; text-align: right; }
+      .location svg { width: 15px; height: 15px; flex-shrink: 0; }
+      .hero-copy { width: 100%; margin-top: 30px; }
+      .hero h1 { max-width: 440px; font-size: clamp(3.2rem, 13vw, 4.5rem); }
+      .hero-subtitle { max-width: 320px; font-size: 1.45rem; }
+      .hero-benefits { gap: 12px; margin: 17px 0 18px; }
+      .hero-benefit { max-width: 105px; font-size: .69rem; gap: 6px; }
+      .hero-benefit .icon { width: 26px; height: 26px; }
+      .hero-actions { width: 100%; max-width: 430px; }
+      .hero-actions .btn { min-height: 52px; font-size: .9rem; }
+      .hero-product { width: 155px; right: 0; bottom: 86px; }
+      .product-label { right: 0; bottom: 51px; padding: 6px 13px; font-size: .95rem; }
+      .vehicle-types { left: 0; right: auto; bottom: 12px; gap: 13px; font-size: .63rem; }
+      .vehicle-types svg { width: 23px; height: 23px; }
+      .benefits { padding: 29px 0; }
+      .benefits-grid { grid-template-columns: 1fr; gap: 12px; }
+      .benefits-intro { grid-column: auto; padding: 0 0 5px; }
+      .benefits-intro .section-title { font-size: 2.2rem; }
+      .benefit-card { display: grid; grid-template-columns: 48px 1fr; column-gap: 13px; padding: 15px; }
+      .benefit-icon { grid-row: span 2; margin: 0; }
+      .benefit-card h3 { align-self: end; }
+      .benefit-card p { grid-column: 2; }
+      .process { padding: 30px 0; }
+      .process-grid { grid-template-columns: 1fr; gap: 15px; }
+      .process-intro { grid-column: auto; padding: 0 0 3px; }
+      .process-intro .section-title { font-size: 2.35rem; }
+      .step-card { display: grid; grid-template-columns: 43% 1fr; gap: 0 12px; padding: 8px; }
+      .step-image-wrap { grid-row: span 2; aspect-ratio: 1 / 1; }
+      .step-number { width: 36px; height: 36px; font-size: 1.2rem; }
+      .step-card h3 { margin: 8px 3px 4px; align-self: end; }
+      .step-card p { margin: 0 3px 7px; font-size: .78rem; }
+      .step-arrow { top: auto; bottom: -17px; right: calc(50% - 17px); transform: rotate(90deg); }
+      .faq-grid { grid-template-columns: 1fr; }
+      .faq-photo { min-height: 180px; max-height: 220px; }
+      .faq-photo img { min-height: 180px; max-height: 220px; }
+      .faq-copy { grid-column: auto; padding: 24px 0 8px; }
+      .faq-copy .section-title { font-size: 1.95rem; }
+      .faq-list { padding: 10px 0 25px; }
+      .faq-question { font-size: .85rem; }
+      .final-cta { min-height: 300px; align-items: flex-end; }
+      .final-cta > img { object-position: 60% center; }
+      .final-cta::before { background: linear-gradient(0deg, rgba(3,20,38,.98) 0%, rgba(3,20,38,.84) 43%, rgba(3,20,38,.1) 100%); }
+      .final-copy { padding: 25px 0; }
+      .final-copy h2 { font-size: 2.05rem; }
+      .final-actions { display: grid; grid-template-columns: 1fr; max-width: 330px; }
+      .footer-inner { display: block; padding-block: 20px 12px; }
+      .brand-footer { margin-bottom: 17px; }
+      .footer-points { display: grid; grid-template-columns: 1fr 1fr; justify-content: stretch; }
+      .footer-point { border-left: 0; padding: 8px 4px; font-size: .68rem; }
+      .copyright { text-align: left; padding-top: 8px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <svg aria-hidden="true" width="0" height="0" style="position:absolute;overflow:hidden">
+    <symbol id="i-bolt" viewBox="0 0 64 96"><path fill="currentColor" d="M37 0 4 52h22L17 96 60 35H36L37 0Z"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="13" r="8.5"/><path d="M12 8v5l3 2M9 2h6M12 2v2"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11Z"/><path d="m8.5 12 2.2 2.2 4.8-5"/></symbol>
+    <symbol id="i-card" viewBox="0 0 24 24"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="M3 9h18M7 14h4"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m6.5 12.5 3.5 3.5 7.5-8"/></symbol>
+    <symbol id="i-money" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M15.5 8.5c-.7-1-1.8-1.5-3.4-1.5-1.8 0-3 .9-3 2.3 0 3.8 6.8 1.4 6.8 5 0 1.5-1.3 2.7-3.4 2.7-1.5 0-2.8-.6-3.7-1.7M12.5 4.5v15"/></symbol>
+    <symbol id="i-car" viewBox="0 0 24 24"><path d="m5 11 2-5h10l2 5M3 11h18l1 4v4h-3v-2H5v2H2v-4l1-4Z"/><circle cx="6.5" cy="14" r="1"/><circle cx="17.5" cy="14" r="1"/></symbol>
+    <symbol id="i-suv" viewBox="0 0 24 24"><path d="m3 11 2-5h10l4 5h2l1 3v4h-3v-2H5v2H2v-5l1-2Z"/><path d="M7 6v5M15 6l3 5"/><circle cx="6.5" cy="14" r="1"/><circle cx="17.5" cy="14" r="1"/></symbol>
+    <symbol id="i-truck" viewBox="0 0 24 24"><path d="M2 5h12v12H2zM14 9h4l4 4v4h-8z"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20l1.2-4.5A8.4 8.4 0 1 1 21 11.5Z"/><path d="M8.5 8.5c.5 2.5 2.5 4.5 5 5l1.2-1.2 2 .8-.2 1.7c-.1.6-.6 1-1.2 1A9.2 9.2 0 0 1 7.2 7.7c0-.6.4-1.1 1-1.2l1.7-.2.8 2-1.2 1.2Z"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 5l7 7-7 7"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M7 3H4a1 1 0 0 0-1 1c0 9.4 7.6 17 17 17a1 1 0 0 0 1-1v-3l-5-2-2 2a14 14 0 0 1-6-6l2-2-2-5Z"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20v-2a6 6 0 0 1 12 0v2M16 5a3 3 0 0 1 0 6M18 14a4 4 0 0 1 3 4v2"/></symbol>
+  </svg>
+
+  <main>
+    <section class="hero" id="inicio" aria-labelledby="hero-title">
+      <img class="hero-photo" src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=1800&q=85" alt="Técnico revisando el motor de un automóvil" fetchpriority="high">
+      <div class="container hero-inner">
+        <header class="topbar">
+          <a class="brand" href="#inicio" aria-label="VOLTIA, inicio">
+            <svg class="brand-bolt" aria-hidden="true"><use href="#i-bolt"/></svg>
+            <span><span class="brand-name">VOLTIA</span><span class="brand-tag">MOVILIDAD AL INSTANTE</span></span>
+          </a>
+          <div class="location"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg><span>Santiago y comunas cercanas</span></div>
+        </header>
+
+        <div class="hero-copy">
+          <h1 id="hero-title">¿Tu auto no <span>enciende?</span></h1>
+          <p class="hero-subtitle">Te llevamos una batería a domicilio.</p>
+          <div class="hero-benefits" aria-label="Ventajas del servicio">
+            <div class="hero-benefit"><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg><span>Rápido<br>y seguro</span></div>
+            <div class="hero-benefit"><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg><span>Instalación<br>incluida*</span></div>
+            <div class="hero-benefit"><svg class="icon" aria-hidden="true"><use href="#i-card"/></svg><span>Pagas al<br>terminar</span></div>
+          </div>
+          <div class="hero-actions">
+            <a class="btn btn-green js-whatsapp" href="#" target="_blank" rel="noopener" aria-label="Solicitar batería por WhatsApp">
+              <svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg><span>Solicita tu batería ahora</span><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+            </a>
+            <a class="btn btn-outline js-phone" href="tel:+56900000000"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg> Llamar ahora</a>
+          </div>
+        </div>
+
+        <img class="hero-product" src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=750&q=85" alt="Equipo y batería para servicio automotriz" loading="eager">
+        <div class="product-label">Baterías de<br>alto rendimiento</div>
+        <div class="vehicle-types" aria-label="Tipos de vehículos atendidos">
+          <span><svg class="icon" aria-hidden="true"><use href="#i-car"/></svg>Autos<br>particulares</span>
+          <span><svg class="icon" aria-hidden="true"><use href="#i-suv"/></svg>SUV<br>y camionetas</span>
+          <span><svg class="icon" aria-hidden="true"><use href="#i-truck"/></svg>Vehículos<br>comerciales</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="benefits" id="ventajas" aria-labelledby="benefits-title">
+      <div class="container benefits-grid">
+        <div class="benefits-intro">
+          <span class="eyebrow"> </span>
+          <h2 class="section-title" id="benefits-title">Un proceso sencillo</h2>
+          <h3>Resuelve el problema sin dar vueltas</h3>
+          <p>Información clara desde el primer contacto para que puedas decidir con tranquilidad.</p>
+        </div>
+        <article class="benefit-card">
+          <div class="benefit-icon green"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg></div>
+          <h3>Revisión de compatibilidad</h3>
+          <p>Con marca, modelo, año y versión del vehículo podemos revisar qué batería corresponde.</p>
+        </article>
+        <article class="benefit-card">
+          <div class="benefit-icon blue"><svg class="icon" aria-hidden="true"><use href="#i-money"/></svg></div>
+          <h3>Precio antes de coordinar</h3>
+          <p>Consulta el valor de la batería y los posibles cargos de visita o instalación antes de confirmar.</p>
+        </article>
+        <article class="benefit-card">
+          <div class="benefit-icon purple"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg></div>
+          <h3>Atención donde la necesites</h3>
+          <p>Indica tu comuna y ubicación para confirmar si hay cobertura y qué horario se puede ofrecer.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="process" id="como-funciona" aria-labelledby="process-title">
+      <div class="container process-grid">
+        <div class="process-intro">
+          <span class="eyebrow"> </span>
+          <h2 class="section-title" id="process-title">Cómo funciona</h2>
+          <h3>Tres pasos para coordinar</h3>
+          <p>Sin formularios largos. Escríbenos con los datos básicos y te orientamos.</p>
+          <div class="handwritten">¡Así de fácil!</div>
+        </div>
+        <article class="step-card">
+          <span class="step-number">1</span>
+          <div class="step-image-wrap"><img class="step-image" src="https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&w=650&q=80" alt="Cliente utilizando su teléfono móvil" loading="lazy"></div>
+          <h3>Envíanos los datos</h3>
+          <p>Marca, modelo, año, comuna y, si puedes, una foto de la batería actual.</p>
+          <span class="step-arrow" aria-hidden="true">→</span>
+        </article>
+        <article class="step-card">
+          <span class="step-number">2</span>
+          <div class="step-image-wrap"><img class="step-image" src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=650&q=80" alt="Asesoría y coordinación con un cliente" loading="lazy"></div>
+          <h3>Confirmamos opciones</h3>
+          <p>Te indicamos compatibilidad, precio, garantía aplicable y disponibilidad.</p>
+          <span class="step-arrow" aria-hidden="true">→</span>
+        </article>
+        <article class="step-card">
+          <span class="step-number">3</span>
+          <div class="step-image-wrap"><img class="step-image" src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=650&q=80" alt="Revisión profesional de un vehículo" loading="lazy"></div>
+          <h3>Coordinamos la visita</h3>
+          <p>Si confirmas, acordamos lugar y horario según la cobertura disponible.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="faq-section" id="preguntas" aria-labelledby="faq-title">
+      <div class="container faq-grid">
+        <div class="faq-photo"><img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=900&q=85" alt="Automóvil moderno" loading="lazy"></div>
+        <div class="faq-copy">
+          <span class="eyebrow"> </span>
+          <h2 class="section-title" id="faq-title">¿Tienes dudas?<br>Antes de pedir tu batería</h2>
+          <p>Revisa las preguntas más comunes y aclara todo antes de coordinar.</p>
+          <a class="faq-link" href="#faq-list">Ver preguntas frecuentes <svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></a>
+        </div>
+        <div class="faq-list" id="faq-list">
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-a1"><span>¿Cuánto cuesta una batería a domicilio?</span><svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></button>
+            <div class="faq-answer" id="faq-a1" hidden>El valor depende del vehículo, la batería compatible y la ubicación. Te confirmamos el precio y los posibles cargos antes de coordinar la visita.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-a2"><span>¿Cuánto demora la atención?</span><svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></button>
+            <div class="faq-answer" id="faq-a2" hidden>El tiempo depende de la comuna, el tráfico y la disponibilidad del técnico. Te indicaremos una estimación al revisar los datos de tu solicitud.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-a3"><span>¿La instalación está incluida?</span><svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></button>
+            <div class="faq-answer" id="faq-a3" hidden>La instalación y cualquier cargo adicional deben confirmarse en la cotización. No coordinaremos el servicio sin informarte previamente las condiciones.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-a4"><span>¿Qué garantía tiene la batería?</span><svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></button>
+            <div class="faq-answer" id="faq-a4" hidden>La garantía depende de la marca y del modelo de batería. Antes de comprar, solicita que te indiquemos el plazo y las condiciones aplicables.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta" id="contacto" aria-labelledby="final-title">
+      <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1800&q=85" alt="" loading="lazy">
+      <div class="container">
+        <div class="final-copy">
+          <span class="eyebrow">No te quedes sin energía</span>
+          <h2 id="final-title">¡Solicita tu batería ahora!</h2>
+          <p>Estamos listos para ayudarte.</p>
+          <div class="final-actions">
+            <a class="btn btn-green js-whatsapp" href="#" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg> Escríbenos por WhatsApp <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a class="btn btn-outline js-phone" href="tel:+56900000000"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg> Llamar ahora</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <a class="brand brand-footer" href="#inicio" aria-label="VOLTIA, volver al inicio">
+        <svg class="brand-bolt" aria-hidden="true"><use href="#i-bolt"/></svg>
+        <span><span class="brand-name">VOLTIA</span><span class="brand-tag">MOVILIDAD AL INSTANTE</span></span>
+      </a>
+      <div class="footer-points">
+        <div class="footer-point"><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg><span>Garantía según batería</span></div>
+        <div class="footer-point"><svg class="icon" aria-hidden="true"><use href="#i-money"/></svg><span>Precio informado antes</span></div>
+        <div class="footer-point"><svg class="icon" aria-hidden="true"><use href="#i-users"/></svg><span>Instalación a consultar</span></div>
+        <div class="footer-point"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg><span>Santiago y comunas cercanas</span></div>
+      </div>
+    </div>
+    <div class="container copyright">© <span id="year"></span> VOLTIA. Todos los derechos reservados.</div>
+  </footer>
+
+  <script>
+    /*
+      CONFIGURACIÓN OBLIGATORIA ANTES DE PUBLICAR:
+      1) Cambia whatsappNumber por el número real, con código de país y solo dígitos.
+         Ejemplo de formato para Chile: 56912345678 (no uses +, espacios ni guiones).
+      2) Cambia phoneNumber por el teléfono real en formato internacional.
+      3) Revisa las fotos y las afirmaciones comerciales antes de publicar.
+    */
+    const VOLTIA_CONFIG = {
+      whatsappNumber: "56900000000", // REEMPLAZAR por el WhatsApp comercial real
+      phoneNumber: "+56900000000",   // REEMPLAZAR por el teléfono comercial real
+      whatsappMessage: "Hola, necesito una batería para mi vehículo. ¿Me pueden ayudar a revisar compatibilidad, precio y disponibilidad?"
+    };
+
+    const whatsappUrl = "https://wa.me/" + VOLTIA_CONFIG.whatsappNumber +
+      "?text=" + encodeURIComponent(VOLTIA_CONFIG.whatsappMessage);
+
+    document.querySelectorAll(".js-whatsapp").forEach((link) => {
+      link.href = whatsappUrl;
+      link.addEventListener("click", (event) => {
+        if (VOLTIA_CONFIG.whatsappNumber === "56900000000") {
+          event.preventDefault();
+          alert("Antes de usar WhatsApp, configura el número comercial real en VOLTIA_CONFIG dentro de index.html.");
+        }
+      });
+    });
+
+    document.querySelectorAll(".js-phone").forEach((link) => {
+      link.href = "tel:" + VOLTIA_CONFIG.phoneNumber;
+      link.addEventListener("click", (event) => {
+        if (VOLTIA_CONFIG.phoneNumber === "+56900000000") {
+          event.preventDefault();
+          alert("Antes de llamar, configura el teléfono comercial real en VOLTIA_CONFIG dentro de index.html.");
+        }
+      });
+    });
+
+    // Acordeón accesible: cada pregunta abre o cierra su respuesta.
+    document.querySelectorAll(".faq-question").forEach((button) => {
+      button.addEventListener("click", () => {
+        const isExpanded = button.getAttribute("aria-expanded") === "true";
+        const answer = document.getElementById(button.getAttribute("aria-controls"));
+        button.setAttribute("aria-expanded", String(!isExpanded));
+        answer.hidden = isExpanded;
+      });
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
