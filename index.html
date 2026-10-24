@@ -92,18 +92,36 @@
     .hero-actions .btn { min-height: 58px; font-size: 1rem; }
     .hero-actions .btn-green { justify-content: space-between; padding-inline: 23px; }
     .hero-actions .btn-outline { justify-content: center; }
-    .hero-product {
-      position: absolute; right: 2%; bottom: 85px; width: clamp(205px, 25vw, 310px);
-      filter: drop-shadow(0 20px 22px rgba(0,0,0,.5)); transform: perspective(900px) rotateY(-5deg);
+
+    /* BATTERIES (nueva sección de productos) */
+    .batteries { padding: 62px 0 58px; background: linear-gradient(180deg, #ffffff 0%, #f3f7fb 100%); }
+    .batteries-head { max-width: 680px; margin-bottom: 34px; }
+    .batteries-head .section-title { color: var(--ink); }
+    .batteries-head p { color: var(--muted); }
+    .batteries-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-bottom: 36px; }
+    .battery-card {
+      background: #fff; border: 1px solid #e8eef5; border-radius: 18px; overflow: hidden;
+      box-shadow: 0 8px 24px rgba(8,31,59,.06);
+      transition: transform .25s ease, box-shadow .25s ease;
+      display: flex; flex-direction: column;
     }
-    .product-label {
-      position: absolute; right: 4%; bottom: 48px; color: #07192b; background: var(--yellow);
-      padding: 8px 24px; transform: rotate(-3deg); font-size: clamp(1rem, 1.7vw, 1.45rem);
-      line-height: 1.03; font-weight: 950; letter-spacing: -.04em; box-shadow: 0 5px 0 rgba(0,0,0,.12);
+    .battery-card:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(8,31,59,.12); }
+    .battery-image {
+      aspect-ratio: 4 / 3; background: linear-gradient(140deg, #f3f7fb, #e2ecf5);
+      display: grid; place-items: center; padding: 26px;
     }
-    .vehicle-types { position: absolute; right: 2%; bottom: 12px; display: flex; gap: 20px; color: #fff; font-size: .72rem; font-weight: 650; }
-    .vehicle-types span { display: flex; align-items: center; gap: 6px; }
-    .vehicle-types svg { width: 27px; height: 27px; }
+    .battery-image img { max-width: 100%; max-height: 100%; object-fit: contain; filter: drop-shadow(0 10px 18px rgba(8,31,59,.14)); }
+    .battery-card-body { padding: 18px 20px 22px; }
+    .battery-card h3 { margin: 0 0 6px; font-size: 1.05rem; line-height: 1.22; letter-spacing: -.02em; color: var(--ink); }
+    .battery-card p { margin: 0; color: var(--muted); font-size: .84rem; line-height: 1.5; }
+    .vehicle-types-row { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+    .vehicle-chip {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 11px 20px; background: #fff; border: 1px solid #d9e3ee; border-radius: 999px;
+      font-weight: 700; font-size: .84rem; color: var(--ink);
+      box-shadow: 0 4px 12px rgba(8,31,59,.05);
+    }
+    .vehicle-chip svg { width: 22px; height: 22px; color: var(--green); }
 
     /* BENEFITS */
     .benefits { padding: 30px 0 32px; background: linear-gradient(110deg, #fff, #f1f5f9); }
@@ -185,9 +203,8 @@
     @media (max-width: 980px) {
       .hero, .hero-inner { min-height: 560px; }
       .hero-copy { width: min(430px, 55%); }
-      .hero-product { right: 0; bottom: 82px; width: 230px; }
-      .product-label { right: 1%; bottom: 48px; }
-      .vehicle-types { right: 0; gap: 10px; }
+      .batteries { padding: 50px 0 48px; }
+      .batteries-grid { grid-template-columns: 1fr 1fr; }
       .benefits-grid { grid-template-columns: repeat(3, 1fr); }
       .benefits-intro { grid-column: 1 / -1; padding-bottom: 4px; }
       .benefits-intro p { max-width: 650px; }
@@ -224,10 +241,11 @@
       .hero-benefit .icon { width: 26px; height: 26px; }
       .hero-actions { width: 100%; max-width: 430px; }
       .hero-actions .btn { min-height: 52px; font-size: .9rem; }
-      .hero-product { width: 155px; right: 0; bottom: 86px; }
-      .product-label { right: 0; bottom: 51px; padding: 6px 13px; font-size: .95rem; }
-      .vehicle-types { left: 0; right: auto; bottom: 12px; gap: 13px; font-size: .63rem; }
-      .vehicle-types svg { width: 23px; height: 23px; }
+      .batteries { padding: 42px 0 44px; }
+      .batteries-grid { grid-template-columns: 1fr; gap: 16px; margin-bottom: 26px; }
+      .battery-image { padding: 22px; }
+      .vehicle-types-row { gap: 10px; }
+      .vehicle-chip { padding: 10px 16px; font-size: .8rem; flex: 1 1 auto; justify-content: center; }
       .benefits { padding: 29px 0; }
       .benefits-grid { grid-template-columns: 1fr; gap: 12px; }
       .benefits-intro { grid-column: auto; padding: 0 0 5px; }
@@ -291,7 +309,7 @@
 
   <main>
     <section class="hero" id="inicio" aria-labelledby="hero-title">
-      <img class="hero-photo" src="assets/hero-technician.jpg" alt="Técnico revisando el motor de un automóvil" fetchpriority="high">
+      <img class="hero-photo" src="assets/hero%20liviano.jpg" alt="Batería de auto a domicilio en Santiago" fetchpriority="high">
       <div class="container hero-inner">
         <header class="topbar">
           <a class="brand" href="#inicio" aria-label="VOLTIA, inicio">
@@ -316,13 +334,54 @@
             <a class="btn btn-outline js-phone" href="tel:+56900000000"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg> Llamar ahora</a>
           </div>
         </div>
+      </div>
+    </section>
 
-        <img class="hero-product" src="assets/battery-detail.jpg" alt="Batería de auto de alto rendimiento" loading="eager">
-        <div class="product-label">Baterías de<br>alto rendimiento</div>
-        <div class="vehicle-types" aria-label="Tipos de vehículos atendidos">
-          <span><svg class="icon" aria-hidden="true"><use href="#i-car"/></svg>Autos<br>particulares</span>
-          <span><svg class="icon" aria-hidden="true"><use href="#i-suv"/></svg>SUV<br>y camionetas</span>
-          <span><svg class="icon" aria-hidden="true"><use href="#i-truck"/></svg>Vehículos<br>comerciales</span>
+    <!-- NUEVA SECCIÓN: BATERÍAS -->
+    <section class="batteries" id="baterias" aria-labelledby="batteries-title">
+      <div class="container">
+        <div class="batteries-head">
+          <span class="eyebrow">Productos</span>
+          <h2 class="section-title" id="batteries-title">Baterías de alto rendimiento</h2>
+          <p class="section-lead">Modelos disponibles para distintos tipos de vehículo. Consulta compatibilidad, precio e instalación antes de coordinar.</p>
+        </div>
+
+        <div class="batteries-grid">
+          <article class="battery-card">
+            <div class="battery-image">
+              <img src="assets/automotive_battery_PNG12085liv.png" alt="Batería automotriz estándar" loading="lazy">
+            </div>
+            <div class="battery-card-body">
+              <h3>Batería 12V · Estándar</h3>
+              <p>Opción confiable para autos particulares y uso diario en ciudad.</p>
+            </div>
+          </article>
+
+          <article class="battery-card">
+            <div class="battery-image">
+              <img src="assets/automotive_battery_PNG99500liv.png" alt="Batería automotriz reforzada" loading="lazy">
+            </div>
+            <div class="battery-card-body">
+              <h3>Batería 12V · Reforzada</h3>
+              <p>Pensada para SUV, camionetas y vehículos con mayor demanda eléctrica.</p>
+            </div>
+          </article>
+
+          <article class="battery-card">
+            <div class="battery-image">
+              <img src="assets/automotive_battery_PNG99501liv.png" alt="Batería automotriz de alta capacidad" loading="lazy">
+            </div>
+            <div class="battery-card-body">
+              <h3>Batería 12V · Alta capacidad</h3>
+              <p>Ideal para vehículos comerciales y equipos que requieren más energía.</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="vehicle-types-row" aria-label="Tipos de vehículos atendidos">
+          <span class="vehicle-chip"><svg class="icon" aria-hidden="true"><use href="#i-car"/></svg>Autos particulares</span>
+          <span class="vehicle-chip"><svg class="icon" aria-hidden="true"><use href="#i-suv"/></svg>SUV y camionetas</span>
+          <span class="vehicle-chip"><svg class="icon" aria-hidden="true"><use href="#i-truck"/></svg>Vehículos comerciales</span>
         </div>
       </div>
     </section>
@@ -364,21 +423,21 @@
         </div>
         <article class="step-card">
           <span class="step-number">1</span>
-          <div class="step-image-wrap"><img class="step-image" src="assets/process-contact.jpg" alt="Contacto para solicitar una batería" loading="lazy"></div>
+          <div class="step-image-wrap"><img class="step-image" src="assets/fase1liv.jpg" alt="Fase 1: envío de datos del vehículo" loading="lazy"></div>
           <h3>Envíanos los datos</h3>
           <p>Marca, modelo, año, comuna y, si puedes, una foto de la batería actual.</p>
           <span class="step-arrow" aria-hidden="true">→</span>
         </article>
         <article class="step-card">
           <span class="step-number">2</span>
-          <div class="step-image-wrap"><img class="step-image" src="assets/process-contact.jpg" alt="Confirmación de opciones y precio de batería" loading="lazy"></div>
+          <div class="step-image-wrap"><img class="step-image" src="assets/fase2liv.jpg" alt="Fase 2: confirmación de opciones y precio" loading="lazy"></div>
           <h3>Confirmamos opciones</h3>
           <p>Te indicamos compatibilidad, precio, garantía aplicable y disponibilidad.</p>
           <span class="step-arrow" aria-hidden="true">→</span>
         </article>
         <article class="step-card">
           <span class="step-number">3</span>
-          <div class="step-image-wrap"><img class="step-image" src="assets/process-visit.jpg" alt="Visita e instalación de batería a domicilio" loading="lazy"></div>
+          <div class="step-image-wrap"><img class="step-image" src="assets/fase3liv.jpg" alt="Fase 3: visita e instalación a domicilio" loading="lazy"></div>
           <h3>Coordinamos la visita</h3>
           <p>Si confirmas, acordamos lugar y horario según la cobertura disponible.</p>
         </article>
@@ -387,7 +446,7 @@
 
     <section class="faq-section" id="preguntas" aria-labelledby="faq-title">
       <div class="container faq-grid">
-        <div class="faq-photo"><img src="assets/battery-detail.jpg" alt="Detalle de batería de automóvil" loading="lazy"></div>
+        <div class="faq-photo"><img src="assets/automotive_battery_PNG99500liv.png" alt="Detalle de batería de automóvil" loading="lazy"></div>
         <div class="faq-copy">
           <span class="eyebrow"> </span>
           <h2 class="section-title" id="faq-title">¿Tienes dudas?<br>Antes de pedir tu batería</h2>
